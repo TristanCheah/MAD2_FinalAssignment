@@ -19,7 +19,6 @@
 		7E7770B623D0486100340074 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E7770B423D0486100340074 /* LaunchScreen.storyboard */; };
 		7E7770C123D0486100340074 /* MAD2_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7770C023D0486100340074 /* MAD2_AssignmentTests.swift */; };
 		7E7770CC23D0486100340074 /* MAD2_AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7770CB23D0486100340074 /* MAD2_AssignmentUITests.swift */; };
-		7E7770DA23D0492C00340074 /* TestScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7E7770D923D0492C00340074 /* TestScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		7E7770C723D0486100340074 /* MAD2_AssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MAD2_AssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7770CB23D0486100340074 /* MAD2_AssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAD2_AssignmentUITests.swift; sourceTree = "<group>"; };
 		7E7770CD23D0486100340074 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E7770D923D0492C00340074 /* TestScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TestScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +109,6 @@
 			children = (
 				7E7770A523D0485F00340074 /* AppDelegate.swift */,
 				7E7770A723D0485F00340074 /* GameScene.sks */,
-				7E7770D923D0492C00340074 /* TestScene.sks */,
 				7E7770A923D0485F00340074 /* Actions.sks */,
 				7E7770AB23D0485F00340074 /* GameScene.swift */,
 				7E7770AD23D0485F00340074 /* GameViewController.swift */,
@@ -247,7 +244,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E7770DA23D0492C00340074 /* TestScene.sks in Resources */,
 				7E7770B123D0485F00340074 /* Main.storyboard in Resources */,
 				7E7770A823D0485F00340074 /* GameScene.sks in Resources */,
 				7E7770B323D0486100340074 /* Assets.xcassets in Resources */,
