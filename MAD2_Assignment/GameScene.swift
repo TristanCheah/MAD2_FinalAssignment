@@ -12,10 +12,10 @@ import GameplayKit
 class GameScene: SKScene {
     
     var entities = [GKEntity]()
-    
+    var graphs = [String : GKGraph]()
     
     private var lastUpdateTime : TimeInterval = 0
-   
+    
     
     override func sceneDidLoad() {
 
@@ -38,7 +38,7 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+       
         
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
