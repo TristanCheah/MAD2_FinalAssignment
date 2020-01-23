@@ -15,15 +15,22 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     
     private var lastUpdateTime : TimeInterval = 0
-    
+    let player = SKSpriteNode(imageNamed: "player")
     
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
+        /*backgroundColor = SKColor.white
+        */
+        player.scale(to: CGSize(width: 100, height: 100))
+        player.position = CGPoint(x: size.width * 0.1, y: size.height * 0.1)
+        addChild(player)
         
+        let moveRight = SKAction.moveBy(x: 100, y:0, duration:1)
+        
+        player.run(moveRight)
         
     }
-    
     
     func touchDown(atPoint pos : CGPoint) {
         
@@ -66,6 +73,8 @@ class GameScene: SKScene {
         
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
+        
+        
         
         // Update entities
         for entity in self.entities {
