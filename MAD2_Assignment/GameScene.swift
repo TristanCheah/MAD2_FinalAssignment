@@ -22,8 +22,10 @@ class GameScene: SKScene {
     
     var stickActive : Bool = false
     
+    
+    
     override func sceneDidLoad() {
-
+        
         self.lastUpdateTime = 0
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         player.position = CGPoint(x: 100, y: 100);
@@ -64,6 +66,8 @@ class GameScene: SKScene {
             let location = t.location(in: self)
             if(base.frame.contains(location)){
                 stickActive = true
+                walkingRight = false
+                walkingLeft = false
             }
             else{
                 stickActive = false
@@ -71,7 +75,8 @@ class GameScene: SKScene {
             
         }
     }
-    
+    var walkingLeft:Bool = false
+    var walkingRight:Bool = false
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in (touches as Set<UITouch>){
             let location = t.location(in: self)
@@ -79,7 +84,7 @@ class GameScene: SKScene {
                 let v = CGVector(dx: location.x - base.position.x, dy: location.y - base.position.y)
                 
                 let angle = atan2(v.dy, v.dx)
-                //let deg = angle * CGFloat(180/Double.pi)
+                let deg = (angle * CGFloat(180/Double.pi)) + 180
                 
                 let length:CGFloat = base.frame.size.height/2
                 
@@ -94,6 +99,23 @@ class GameScene: SKScene {
                 else{
                     ball.position = CGPoint(x:base.position.x - x_dist, y:base.position.y + y_dist)
                 }
+                print(deg)
+                if (deg < 90 || deg > 315){
+                    
+                    walkingLeft = true
+                }
+                else{
+                    walkingLeft = false
+                }
+                
+                if(deg < 225){
+                    walkingRight = true
+                }
+                else{
+                    walkingRight = false
+                }
+                
+               
                 
             }
         }
@@ -106,6 +128,8 @@ class GameScene: SKScene {
                 move.timingMode = .easeOut
                 
                 ball.run(move)
+                walkingRight = false
+                walkingLeft = false
             
         }
     }
@@ -122,7 +146,12 @@ class GameScene: SKScene {
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime
         }
-        
+        if(walkingLeft == true){
+            player.position.x -= 1;
+        }
+        else if (walkingRight == true){
+            player.position.x += 1;
+        }
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
         
