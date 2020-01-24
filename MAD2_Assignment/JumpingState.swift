@@ -18,17 +18,7 @@ class JumpingState : GKState{
         return stateClass == WalkingState.self
     }
     override func update(deltaTime seconds: TimeInterval) {
-        print("jumping")
-        if(player_node.walkingLeft == true){
-            player_node.walkLeft()
-        }
-        else if (player_node.walkingRight == true){
-            player_node.walkRight()
-        }
-        player_node.jump()
-        if (player_node.can_jump == false){
-            self.stateMachine?.enter(WalkingState.self)
-        }
+        
     }
     
 }

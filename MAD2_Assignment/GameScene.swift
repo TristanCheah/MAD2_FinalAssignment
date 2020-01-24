@@ -13,6 +13,7 @@ class GameScene: SKScene {
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
+    var physics_delegate = PhysicsDelegate()
     
     private var lastUpdateTime : TimeInterval = 0    
     var joystick : JoystickNode = JoystickNode()
@@ -27,6 +28,7 @@ class GameScene: SKScene {
         self.backgroundColor = SKColor.white
         player_node.InstantiatePlayer(scene: self)
         joystick.InstantiateJoystick(scene: self, player_node: player_node)
+        self.physicsWorld.contactDelegate = physics_delegate
         
     }
     
