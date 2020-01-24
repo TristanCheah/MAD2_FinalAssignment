@@ -14,38 +14,104 @@ class GameScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
-    private var lastUpdateTime : TimeInterval = 0
-    
-    let player = SKSpriteNode(imageNamed: "player")
-    let ball = SKSpriteNode(imageNamed: "joystick_ball")
-    let base = SKSpriteNode(imageNamed: "joystick_base")
-    
-    var stickActive : Bool = false
-    
+    private var lastUpdateTime : TimeInterval = 0    
+    var joystick : JoystickNode = JoystickNode()
+    var player_node : PlayerNode = PlayerNode()
+   
     
     
     override func sceneDidLoad() {
         
         self.lastUpdateTime = 0
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        player.position = CGPoint(x: 100, y: 100);
-        player.scale(to: CGSize(width: 100, height: 100));
-        self.addChild(player)
-        
-        self.addChild(base)
-        base.position = CGPoint(x: 0, y: -200)
-        base.scale(to: CGSize(width: 150, height: 150))
-        
-        self.addChild(ball)
-        ball.position = base.position
-        ball.scale(to: CGSize(width: 150, height: 150))
-        
-        base.alpha = 0.4
-        ball.alpha = 0.4
+        self.backgroundColor = SKColor.white
+        player_node.InstantiatePlayer(scene: self)
+        joystick.InstantiateJoystick(scene: self, player_node: player_node)
         
     }
     
     
+// JOYSTICK SETUP
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        player_node.can_jump = true
+        for t in touches {
+            
+            let location = t.location(in: self)
+            if(joystick.base.frame.contains(location)){
+                joystick.stickActive = true
+                player_node.walkingRight = false
+                player_node.walkingLeft = false
+            }
+            else{
+                joystick.stickActive = false
+            }
+            
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in (touches as Set<UITouch>){
+            let location = t.location(in:self)
+            if(joystick.stickActive == true){
+                let v = CGVector(dx: location.x - joystick.base.position.x, dy: location.y - joystick.base.position.y)
+                
+                let angle = atan2(v.dy, v.dx)
+                let deg = (angle * CGFloat(180/Double.pi)) + 180
+                
+                let length:CGFloat = joystick.base.frame.size.height/2
+                
+                let x_dist:CGFloat = sin(angle - 1.57079633) * length
+                let y_dist :CGFloat = cos(angle - 1.57079633) * length //90 ded in radians
+                
+                
+                
+                if(joystick.base.frame.contains(location)){
+                    joystick.ball.position = location
+                }
+                else{
+                    joystick.ball.position = CGPoint(x:joystick.base.position.x - x_dist, y:joystick.base.position.y + y_dist)
+                }
+                print(deg)
+                if (deg < 90 || deg > 315){
+                    
+                    player_node.walkingLeft = true
+                }
+                else{
+                    player_node.walkingLeft = false
+                }
+                
+                if(deg < 225){
+                    
+                    player_node.walkingRight = true
+                }
+                else{
+                    player_node.walkingRight = false
+                }
+                if(deg < 315 && deg > 225){
+                    player_node.can_jump = true
+                }
+                else{
+                    player_node.can_jump = false
+                }
+                
+            }
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+            if (joystick.stickActive == true){
+                let move:SKAction = SKAction.move(to: joystick.base.position, duration: 0.2)
+                move.timingMode = .easeOut
+                
+                joystick.ball.run(move)
+                player_node.can_jump = true
+                player_node.walkingLeft = false
+                player_node.walkingRight = false
+            
+        }
+    }
+//JOYSTICK SETUP
     func touchDown(atPoint pos : CGPoint) {
         
     }
@@ -57,87 +123,9 @@ class GameScene: SKScene {
     func touchUp(atPoint pos : CGPoint) {
         
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    func checkForJump(){
        
-        
-        for t in touches {
-            
-            let location = t.location(in: self)
-            if(base.frame.contains(location)){
-                stickActive = true
-                walkingRight = false
-                walkingLeft = false
-            }
-            else{
-                stickActive = false
-            }
-            
-        }
     }
-    var walkingLeft:Bool = false
-    var walkingRight:Bool = false
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in (touches as Set<UITouch>){
-            let location = t.location(in: self)
-            if(stickActive == true){
-                let v = CGVector(dx: location.x - base.position.x, dy: location.y - base.position.y)
-                
-                let angle = atan2(v.dy, v.dx)
-                let deg = (angle * CGFloat(180/Double.pi)) + 180
-                
-                let length:CGFloat = base.frame.size.height/2
-                
-                let x_dist:CGFloat = sin(angle - 1.57079633) * length
-                let y_dist :CGFloat = cos(angle - 1.57079633) * length //90 ded in radians
-                
-                
-                
-                if(base.frame.contains(location)){
-                    ball.position = location
-                }
-                else{
-                    ball.position = CGPoint(x:base.position.x - x_dist, y:base.position.y + y_dist)
-                }
-                print(deg)
-                if (deg < 90 || deg > 315){
-                    
-                    walkingLeft = true
-                }
-                else{
-                    walkingLeft = false
-                }
-                
-                if(deg < 225){
-                    walkingRight = true
-                }
-                else{
-                    walkingRight = false
-                }
-                
-               
-                
-            }
-        }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-            if (stickActive == true){
-                let move:SKAction = SKAction.move(to: base.position, duration: 0.2)
-                move.timingMode = .easeOut
-                
-                ball.run(move)
-                walkingRight = false
-                walkingLeft = false
-            
-        }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
@@ -146,15 +134,10 @@ class GameScene: SKScene {
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime
         }
-        if(walkingLeft == true){
-            player.position.x -= 1;
-        }
-        else if (walkingRight == true){
-            player.position.x += 1;
-        }
+        
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
-        
+        player_node.stateMachine?.update(deltaTime: dt)
         // Update entities
         for entity in self.entities {
             entity.update(deltaTime: dt)
