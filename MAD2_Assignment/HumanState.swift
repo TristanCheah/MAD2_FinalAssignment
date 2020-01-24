@@ -8,16 +8,12 @@
 
 import Foundation
 import GameplayKit
-class WalkingState : GKState{
+class HumanState : GKState{
     var player_node :PlayerNode;
     init(player_node_:PlayerNode){
         player_node = player_node_
     }
-    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-       
-        return stateClass == JumpingState.self
-        
-    }
+    
     override func update(deltaTime seconds: TimeInterval) {
         var accelSpeed : CGFloat  = 0.0
         var decelSpeed : CGFloat = 0.0
@@ -40,7 +36,7 @@ class WalkingState : GKState{
         else{
             player_node.speed_ = approach(start: player_node.speed_, end: 0.0, shift: decelSpeed)
         }
-        print(player_node.grounded)
+       
         if(player_node.grounded){
             if !player_node.landed{
                 player_node.physicsBody?.applyImpulse(CGVector(dx: (player_node.physicsBody?.velocity.dx)!, dy: 0.0))
@@ -64,7 +60,7 @@ class WalkingState : GKState{
         
         
         player_node.position.x += player_node.speed_;
-        /*if (player_node.can_jump == true){
+       /* if (player_node.can_jump == true){
             self.stateMachine?.enter(JumpingState.self)
         }*/
         

@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E359A9E23DAAFE2002D99C2 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E359A9D23DAAFE2002D99C2 /* PlayerNode.swift */; };
 		7E359AA023DAB36F002D99C2 /* JoystickNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E359A9F23DAB36F002D99C2 /* JoystickNode.swift */; };
-		7E359AA223DAC2CD002D99C2 /* WalkingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E359AA123DAC2CD002D99C2 /* WalkingState.swift */; };
-		7E359AA423DAC6D2002D99C2 /* JumpingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E359AA323DAC6D2002D99C2 /* JumpingState.swift */; };
+		7E359AA223DAC2CD002D99C2 /* HumanState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E359AA123DAC2CD002D99C2 /* HumanState.swift */; };
 		7E39B94323DAEED40053D35E /* PhysicsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E39B94223DAEED40053D35E /* PhysicsDelegate.swift */; };
 		7E4A62AC23D5D4AA008BD726 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A62AB23D5D4AA008BD726 /* FrontViewController.swift */; };
 		7E4A62AE23D5D654008BD726 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A62AD23D5D654008BD726 /* NavigationViewController.swift */; };
@@ -46,8 +45,7 @@
 /* Begin PBXFileReference section */
 		7E359A9D23DAAFE2002D99C2 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		7E359A9F23DAB36F002D99C2 /* JoystickNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickNode.swift; sourceTree = "<group>"; };
-		7E359AA123DAC2CD002D99C2 /* WalkingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingState.swift; sourceTree = "<group>"; };
-		7E359AA323DAC6D2002D99C2 /* JumpingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpingState.swift; sourceTree = "<group>"; };
+		7E359AA123DAC2CD002D99C2 /* HumanState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanState.swift; sourceTree = "<group>"; };
 		7E39B94223DAEED40053D35E /* PhysicsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsDelegate.swift; sourceTree = "<group>"; };
 		7E4A62AB23D5D4AA008BD726 /* FrontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontViewController.swift; sourceTree = "<group>"; };
 		7E4A62AD23D5D654008BD726 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -131,8 +129,7 @@
 				7E359A9D23DAAFE2002D99C2 /* PlayerNode.swift */,
 				7E39B94223DAEED40053D35E /* PhysicsDelegate.swift */,
 				7E359A9F23DAB36F002D99C2 /* JoystickNode.swift */,
-				7E359AA123DAC2CD002D99C2 /* WalkingState.swift */,
-				7E359AA323DAC6D2002D99C2 /* JumpingState.swift */,
+				7E359AA123DAC2CD002D99C2 /* HumanState.swift */,
 			);
 			path = MAD2_Assignment;
 			sourceTree = "<group>";
@@ -288,11 +285,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E359AA423DAC6D2002D99C2 /* JumpingState.swift in Sources */,
 				7E359A9E23DAAFE2002D99C2 /* PlayerNode.swift in Sources */,
 				7E4A62AC23D5D4AA008BD726 /* FrontViewController.swift in Sources */,
 				7E359AA023DAB36F002D99C2 /* JoystickNode.swift in Sources */,
-				7E359AA223DAC2CD002D99C2 /* WalkingState.swift in Sources */,
+				7E359AA223DAC2CD002D99C2 /* HumanState.swift in Sources */,
 				7E7770AC23D0485F00340074 /* GameScene.swift in Sources */,
 				7E7770AE23D0485F00340074 /* GameViewController.swift in Sources */,
 				7E4A62AE23D5D654008BD726 /* NavigationViewController.swift in Sources */,

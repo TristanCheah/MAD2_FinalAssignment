@@ -44,10 +44,8 @@
             filePath = "MAD2_Assignment/JumpingState.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "update(deltaTime:)"
-            landmarkType = "7">
+            startingLineNumber = "42"
+            endingLineNumber = "42">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -148,7 +146,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "999C179F-2184-428C-9EC1-C8D9468EB402"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MAD2_Assignment/WalkingState.swift"
@@ -156,6 +154,22 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
+            landmarkName = "update(deltaTime:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "66E047B6-4234-48C7-B930-DD4A362A1EE4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MAD2_Assignment/WalkingState.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "update(deltaTime:)"
             landmarkType = "7">
          </BreakpointContent>

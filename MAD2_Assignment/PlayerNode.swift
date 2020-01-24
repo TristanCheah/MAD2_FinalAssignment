@@ -56,9 +56,9 @@ class PlayerNode : SKSpriteNode {
    
    
     func setupStateMachine(){
-        let walkingState = WalkingState(player_node_: self)
-        let jumpingState = JumpingState(player_node_: self)
-        stateMachine = GKStateMachine(states: [walkingState, jumpingState])
-        stateMachine!.enter(WalkingState.self)
+        let humanState = HumanState(player_node_: self)
+        
+        stateMachine = GKStateMachine(states: [humanState])
+        stateMachine!.enter(HumanState.self)
     }
 }
