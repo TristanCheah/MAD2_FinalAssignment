@@ -19,6 +19,9 @@ class JumpingState : GKState{
     }
     override func update(deltaTime seconds: TimeInterval) {
         
+        if(player_node.landed && player_node.jump == false){
+            self.stateMachine?.enter(WalkingState.self)
+        }
     }
     
 }

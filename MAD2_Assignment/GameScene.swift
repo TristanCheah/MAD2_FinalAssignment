@@ -13,11 +13,12 @@ class GameScene: SKScene {
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
-    var physics_delegate = PhysicsDelegate()
+   
     
     private var lastUpdateTime : TimeInterval = 0    
     var joystick : JoystickNode = JoystickNode()
-    var player_node : PlayerNode = PlayerNode()
+    var player_node : PlayerNode = PlayerNode(imageNamed: "player")
+    var physics_delegate = PhysicsDelegate()
    
     
     
@@ -26,7 +27,8 @@ class GameScene: SKScene {
         self.lastUpdateTime = 0
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         self.backgroundColor = SKColor.white
-        player_node.InstantiatePlayer(scene: self)
+        player_node.InstantiatePlayer(player: player_node)
+        self.addChild(player_node)
         joystick.InstantiateJoystick(scene: self, player_node: player_node)
         self.physicsWorld.contactDelegate = physics_delegate
         
@@ -91,6 +93,11 @@ class GameScene: SKScene {
                 }
                 if(deg < 315 && deg > 225){
                    //jump
+                    player_node.can_jump = true
+                    player_node.jump = true
+                }
+                else{
+                    player_node.can_jump = false
                 }
               
                 

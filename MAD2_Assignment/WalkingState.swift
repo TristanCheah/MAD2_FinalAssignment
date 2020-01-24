@@ -22,7 +22,6 @@ class WalkingState : GKState{
         var accelSpeed : CGFloat  = 0.0
         var decelSpeed : CGFloat = 0.0
         
-        print(player_node.grounded)
         
         if(player_node.grounded){
             accelSpeed = player_node.groundAccel
@@ -30,7 +29,7 @@ class WalkingState : GKState{
         }
         else{
             accelSpeed = player_node.airAccel
-            accelSpeed = player_node.airDecel
+            decelSpeed = player_node.airDecel
         }
         if(player_node.walkingLeft == true){
             player_node.speed_ = approach(start: player_node.speed_, end: -5, shift: accelSpeed)
@@ -41,7 +40,30 @@ class WalkingState : GKState{
         else{
             player_node.speed_ = approach(start: player_node.speed_, end: 0.0, shift: decelSpeed)
         }
-        player_node.player.position.x += player_node.speed_;
+        print(player_node.grounded)
+        if(player_node.grounded){
+            if !player_node.landed{
+                player_node.physicsBody?.applyImpulse(CGVector(dx: (player_node.physicsBody?.velocity.dx)!, dy: 0.0))
+                player_node.landed = true
+            }
+            if player_node.jump{
+                player_node.physicsBody?.applyImpulse(CGVector(dx: 0.0, dy: player_node.max_jump))
+                player_node.grounded = false
+            }
+        }
+        if (!player_node.grounded){
+            if ((player_node.physicsBody?.velocity.dy)! < CGFloat(0.0)){
+                player_node.jump = false
+            }
+            if ((player_node.physicsBody?.velocity.dy)! > CGFloat(0.0) && !player_node.jump){
+                player_node.physicsBody?.velocity.dy *= 0.5
+                
+            }
+            player_node.landed = false
+        }
+        
+        
+        player_node.position.x += player_node.speed_;
         /*if (player_node.can_jump == true){
             self.stateMachine?.enter(JumpingState.self)
         }*/
