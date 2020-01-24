@@ -17,6 +17,7 @@ class PlayerNode : SKNode {
     
     var speed_ : CGFloat = 0.0
     var grounded : Bool = true
+    var landed : Bool = false
     var walkingLeft : Bool = false
     var walkingRight : Bool = false
    
@@ -48,15 +49,7 @@ class PlayerNode : SKNode {
    
     
     func jump(){
-        // move up 20
-        let jumpUpAction = SKAction.moveBy(x: 0, y: 10, duration: 1)
-        
-        let finish = SKAction.run {
-            self.can_jump = false
-        }
-        // move down 20
-        let jumpSequence = SKAction.sequence([jumpUpAction, finish])
-        player.run(jumpSequence)
+       
     }
     func walkLeft(){
         player.position.x -= 4;

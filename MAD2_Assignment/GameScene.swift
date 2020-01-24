@@ -90,11 +90,9 @@ class GameScene: SKScene {
                     player_node.walkingRight = false
                 }
                 if(deg < 315 && deg > 225){
-                    player_node.can_jump = true
+                   //jump
                 }
-                else{
-                    player_node.can_jump = false
-                }
+              
                 
             }
         }

@@ -10,8 +10,8 @@ import Foundation
 import SpriteKit
 import GameplayKit
 struct ColliderType {
-    static let PLAYER : UInt32 = 0x1 << 1
-    static let GROUND : UInt32 = 0x2 << 2
+    static let PLAYER : UInt32 = 0x1 << 0
+    static let GROUND : UInt32 = 0x2 << 1
 }
 class PhysicsDelegate : NSObject, SKPhysicsContactDelegate{
     func didBegin(_ contact: SKPhysicsContact) {
