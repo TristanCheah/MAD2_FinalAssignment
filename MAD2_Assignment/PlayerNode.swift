@@ -51,10 +51,6 @@ class PlayerNode : SKSpriteNode {
         
     }
     
-   
-    
-   
-   
     func setupStateMachine(){
         let humanState = HumanState(player_node_: self)
         

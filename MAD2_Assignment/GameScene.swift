@@ -18,6 +18,7 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0    
     var joystick : JoystickNode = JoystickNode()
     var player_node : PlayerNode = PlayerNode(imageNamed: "player")
+    var shoot_button : Button = Button(imageNamed: "button")
     var physics_delegate = PhysicsDelegate()
    
     
@@ -27,9 +28,15 @@ class GameScene: SKScene {
         self.lastUpdateTime = 0
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         self.backgroundColor = SKColor.white
+        
         player_node.InstantiatePlayer(player: player_node)
         self.addChild(player_node)
         joystick.InstantiateJoystick(scene: self, player_node: player_node)
+        
+        shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 400, y: -200))
+        self.addChild(shoot_button)
+        
+        
         self.physicsWorld.contactDelegate = physics_delegate
         
     }
@@ -48,6 +55,10 @@ class GameScene: SKScene {
             }
             else{
                 joystick.stickActive = false
+            }
+            
+            if (shoot_button.frame.contains(location)){
+                player_node.jump = true;
             }
             
         }
@@ -75,6 +86,7 @@ class GameScene: SKScene {
                 else{
                     joystick.ball.position = CGPoint(x:joystick.base.position.x - x_dist, y:joystick.base.position.y + y_dist)
                 }
+               
                 print(deg)
                 if (deg < 90 || deg > 315){
                     
@@ -115,9 +127,9 @@ class GameScene: SKScene {
                 player_node.can_jump = true
                 player_node.walkingLeft = false
                 player_node.walkingRight = false
-            
         }
     }
+    
 //JOYSTICK SETUP
     func touchDown(atPoint pos : CGPoint) {
         
@@ -129,9 +141,6 @@ class GameScene: SKScene {
     
     func touchUp(atPoint pos : CGPoint) {
         
-    }
-    func checkForJump(){
-       
     }
     
     override func update(_ currentTime: TimeInterval) {
