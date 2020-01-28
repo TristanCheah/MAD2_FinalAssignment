@@ -47,6 +47,7 @@ class PlayerNode : SKSpriteNode {
         player.physicsBody?.categoryBitMask = 1
         player.physicsBody?.fieldBitMask = 0
         player.physicsBody?.contactTestBitMask = 0
+        player.physicsBody?.allowsRotation = false
         player.name = "player"
         
     }
