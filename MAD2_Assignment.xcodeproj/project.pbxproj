@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E33E51D23E010CF0077B4E3 /* PrototypeTileset.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7E33E51C23E010CF0077B4E3 /* PrototypeTileset.sks */; };
 		7E347A9F23DD749A00F29394 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E347A9E23DD749A00F29394 /* Button.swift */; };
 		7E359A9E23DAAFE2002D99C2 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E359A9D23DAAFE2002D99C2 /* PlayerNode.swift */; };
 		7E359AA023DAB36F002D99C2 /* JoystickNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E359A9F23DAB36F002D99C2 /* JoystickNode.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E33E51C23E010CF0077B4E3 /* PrototypeTileset.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PrototypeTileset.sks; sourceTree = "<group>"; };
 		7E347A9E23DD749A00F29394 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		7E359A9D23DAAFE2002D99C2 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		7E359A9F23DAB36F002D99C2 /* JoystickNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickNode.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				7E7770AD23D0485F00340074 /* GameViewController.swift */,
 				7E7770AF23D0485F00340074 /* Main.storyboard */,
 				7E7770B223D0486100340074 /* Assets.xcassets */,
+				7E33E51C23E010CF0077B4E3 /* PrototypeTileset.sks */,
 				7E7770B423D0486100340074 /* LaunchScreen.storyboard */,
 				7E7770B723D0486100340074 /* Info.plist */,
 				7E4A62AB23D5D4AA008BD726 /* FrontViewController.swift */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E7770B123D0485F00340074 /* Main.storyboard in Resources */,
+				7E33E51D23E010CF0077B4E3 /* PrototypeTileset.sks in Resources */,
 				7E7770A823D0485F00340074 /* GameScene.sks in Resources */,
 				7E7770B323D0486100340074 /* Assets.xcassets in Resources */,
 				7E7770B623D0486100340074 /* LaunchScreen.storyboard in Resources */,

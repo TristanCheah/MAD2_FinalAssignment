@@ -20,11 +20,13 @@ class GameScene: SKScene {
     var player_node : PlayerNode = PlayerNode(imageNamed: "player")
     var shoot_button : Button = Button(imageNamed: "button")
     var physics_delegate = PhysicsDelegate()
+    
+    
    
     
     
     override func sceneDidLoad() {
-        
+        self.camera = get_camera()
         self.lastUpdateTime = 0
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
         self.backgroundColor = SKColor.white
@@ -35,13 +37,20 @@ class GameScene: SKScene {
         
         shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 400, y: -200))
         self.addChild(shoot_button)
-        
-        
         self.physicsWorld.contactDelegate = physics_delegate
         
     }
     
-    
+    func get_camera()->SKCameraNode{
+        var i : Int = 0
+        for child in self.children {
+            
+            if(child.name == "camera"){
+                return child as! SKCameraNode
+            }
+        }
+        return SKCameraNode();
+    }
 // JOYSTICK SETUP
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         player_node.can_jump = true
@@ -154,6 +163,7 @@ class GameScene: SKScene {
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
         player_node.stateMachine?.update(deltaTime: dt)
+        camera?.position = CGPoint(x: player_node.position.x, y: 0)
         // Update entities
         for entity in self.entities {
             entity.update(deltaTime: dt)
