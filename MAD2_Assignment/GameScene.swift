@@ -33,16 +33,16 @@ class GameScene: SKScene {
         
         player_node.InstantiatePlayer(player: player_node)
         self.addChild(player_node)
-        joystick.InstantiateJoystick(scene: self, player_node: player_node)
+        joystick.InstantiateJoystick(scene: self, player_node: player_node, camera: self.camera!)
         
         shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 400, y: -200))
-        self.addChild(shoot_button)
+        self.camera?.addChild(shoot_button)
         self.physicsWorld.contactDelegate = physics_delegate
         
     }
     
     func get_camera()->SKCameraNode{
-        var i : Int = 0
+        
         for child in self.children {
             
             if(child.name == "camera"){
@@ -56,7 +56,8 @@ class GameScene: SKScene {
         player_node.can_jump = true
         for t in touches {
             
-            let location = t.location(in: self)
+            let location = t.location(in: self.camera!)
+            
             if(joystick.base.frame.contains(location)){
                 joystick.stickActive = true
                 player_node.walkingRight = false
@@ -75,7 +76,7 @@ class GameScene: SKScene {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in (touches as Set<UITouch>){
-            let location = t.location(in:self)
+            let location = t.location(in:self.camera!)
             if(joystick.stickActive == true){
                 let v = CGVector(dx: location.x - joystick.base.position.x, dy: location.y - joystick.base.position.y)
                 
@@ -166,6 +167,8 @@ class GameScene: SKScene {
         player_node.stateMachine?.update(deltaTime: dt)
         let cam_pos_y : CGFloat = player_node.position.y + 180
         camera?.position = CGPoint(x: player_node.position.x, y: cam_pos_y)
+        
+        
         // Update entities
         for entity in self.entities {
             entity.update(deltaTime: dt)

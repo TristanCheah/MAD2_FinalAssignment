@@ -14,21 +14,25 @@ class JoystickNode : SKSpriteNode{
     var player = PlayerNode()
     
     
-    func InstantiateJoystick(scene : SKScene, player_node : PlayerNode){
-        scene.addChild(base)
-        base.position = CGPoint(x: 0, y: -200)
+    func InstantiateJoystick(scene : SKScene, player_node : PlayerNode, camera: SKCameraNode){
+        ball.anchorPoint = CGPoint(x:0.5,y:0.5)
+        base.anchorPoint = CGPoint(x:0.5,y:0.5)
+        base.position = CGPoint(x: -300, y: -200)
         base.scale(to: CGSize(width: 150, height: 150))
        
-        scene.addChild(ball)
+        
         ball.position = base.position
         ball.scale(to: CGSize(width: 150, height: 150))
        
         base.alpha = 0.4
         ball.alpha = 0.4
         
+        
+        camera.addChild(base)
+        camera.addChild(ball)
         player = player_node
     }
-   
+    
     var stickActive : Bool = false
     
     
