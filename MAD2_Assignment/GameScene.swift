@@ -162,8 +162,10 @@ class GameScene: SKScene {
         
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
+        
         player_node.stateMachine?.update(deltaTime: dt)
-        camera?.position = CGPoint(x: player_node.position.x, y: 0)
+        let cam_pos_y : CGFloat = player_node.position.y + 180
+        camera?.position = CGPoint(x: player_node.position.x, y: cam_pos_y)
         // Update entities
         for entity in self.entities {
             entity.update(deltaTime: dt)
