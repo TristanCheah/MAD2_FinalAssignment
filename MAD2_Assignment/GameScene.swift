@@ -17,23 +17,24 @@ class GameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0    
     var joystick : JoystickNode = JoystickNode()
-    var player_node : PlayerNode = PlayerNode(imageNamed: "player")
+    var player_node : PlayerNode = PlayerNode()
     var shoot_button : Button = Button(imageNamed: "button")
     var jump_button : Button = Button(imageNamed: "button")
     var physics_delegate = PhysicsDelegate()
-    
-    
-   
     
     
     override func sceneDidLoad() {
         self.camera = get_camera()
         self.lastUpdateTime = 0
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        self.backgroundColor = SKColor.white
+        self.backgroundColor = SKColor.green
         
-        player_node.InstantiatePlayer(player: player_node)
-        self.addChild(player_node)
+        if let player : PlayerNode = self.childNode(withName: "player") as? PlayerNode{
+            player_node = player
+            player_node.InstantiatePlayer(player: player_node)
+        }
+        
+        //self.addChild(player_node)
         //HUD
         joystick.InstantiateJoystick(scene: self, player_node: player_node, camera: self.camera!)
         

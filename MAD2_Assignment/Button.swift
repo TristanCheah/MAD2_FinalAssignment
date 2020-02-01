@@ -11,6 +11,7 @@ import SpriteKit
 class Button : SKSpriteNode{
     //var button_held : Bool = false
     func InstantiateButton(self_button : Button, location : CGPoint){
+        self_button.zPosition = 2;
         self_button.position = location
         self_button.scale(to: CGSize(width: 50, height: 50))
     }
