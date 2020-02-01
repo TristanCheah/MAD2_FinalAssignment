@@ -18,7 +18,7 @@ class HumanState : GKState{
         var accelSpeed : CGFloat  = 0.0
         var decelSpeed : CGFloat = 0.0
         
-        
+       
         if(player_node.grounded){
             accelSpeed = player_node.groundAccel
             decelSpeed = player_node.groundDecel

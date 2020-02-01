@@ -20,5 +20,18 @@ class Bullet : SKSpriteNode{
         let sequence = SKAction.sequence([now_can_shoot,destroy])
         self.run(sequence)
     }
+    func ChangePlayerState(object_hit:SKNode){
+        print(object_hit.name!)
+        print(player_.player_state_name)
+        if(object_hit.name! == player_.player_state_name){
+            player_.stateMachine?.enter(HumanState.self)
+            print("Back to Human")
+            //player_.stateMachine?.enter(HumanState.self)
+        }
+        else if(object_hit.name == "Bird"){
+            player_.stateMachine?.enter(BirdState.self)
+            print("Now Bird")
+        }
+    }
     
 }

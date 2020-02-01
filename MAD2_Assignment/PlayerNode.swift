@@ -34,7 +34,7 @@ class PlayerNode : SKSpriteNode {
     var max_jump : CGFloat = 300;
     
     var did_shoot : Bool = false;
-    
+    var player_state_name : String = "";
     
     func InstantiatePlayer(player : PlayerNode){
         
@@ -54,9 +54,10 @@ class PlayerNode : SKSpriteNode {
     
     func setupStateMachine(){
         let humanState = HumanState(player_node_: self)
-        
-        stateMachine = GKStateMachine(states: [humanState])
+        let birdState = BirdState(player_node_: self)
+        stateMachine = GKStateMachine(states: [humanState, birdState])
         stateMachine!.enter(HumanState.self)
+        
     }
     func fireBullet(scene : SKScene){
         let bullet = Bullet(imageNamed: "bullet")

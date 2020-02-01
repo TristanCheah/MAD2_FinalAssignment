@@ -44,10 +44,11 @@ class PhysicsDelegate : NSObject, SKPhysicsContactDelegate{
         if collision == ColliderType.BULLET | ColliderType.TRANSFORM{
             if let bullet = contact.bodyA.node as? Bullet{
                 bullet.DestroySelf()
-                
+                bullet.ChangePlayerState(object_hit: contact.bodyB.node!)
             }
             else if let bullet = contact.bodyB.node as? Bullet{
                 bullet.DestroySelf()
+                bullet.ChangePlayerState(object_hit: contact.bodyA.node!)
             }
             
         }
