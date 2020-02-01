@@ -19,6 +19,7 @@ class GameScene: SKScene {
     var joystick : JoystickNode = JoystickNode()
     var player_node : PlayerNode = PlayerNode(imageNamed: "player")
     var shoot_button : Button = Button(imageNamed: "button")
+    var jump_button : Button = Button(imageNamed: "button")
     var physics_delegate = PhysicsDelegate()
     
     
@@ -33,10 +34,15 @@ class GameScene: SKScene {
         
         player_node.InstantiatePlayer(player: player_node)
         self.addChild(player_node)
+        //HUD
         joystick.InstantiateJoystick(scene: self, player_node: player_node, camera: self.camera!)
         
-        shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 400, y: -200))
+        shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 400, y: -150))
         self.camera?.addChild(shoot_button)
+        
+        jump_button.InstantiateButton(self_button: jump_button, location:CGPoint(x: 440, y: -200))
+        self.camera?.addChild(jump_button)
+        //HUD
         self.physicsWorld.contactDelegate = physics_delegate
         
     }
@@ -67,12 +73,18 @@ class GameScene: SKScene {
                 joystick.stickActive = false
             }
             
-            if (shoot_button.frame.contains(location)){
+            if (jump_button.frame.contains(location)){
                 player_node.jump = true;
+            }
+            if(shoot_button.frame.contains(location) && player_node.did_shoot == false){
+                //shoot
+                player_node.fireBullet(scene: self)
             }
             
         }
     }
+    
+    
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in (touches as Set<UITouch>){

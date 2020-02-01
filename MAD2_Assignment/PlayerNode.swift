@@ -33,7 +33,7 @@ class PlayerNode : SKSpriteNode {
     
     var max_jump : CGFloat = 300;
     
-   
+    var did_shoot : Bool = false;
     
     
     func InstantiatePlayer(player : PlayerNode){
@@ -57,5 +57,38 @@ class PlayerNode : SKSpriteNode {
         
         stateMachine = GKStateMachine(states: [humanState])
         stateMachine!.enter(HumanState.self)
+    }
+    func fireBullet(scene : SKScene){
+        let bullet = SKSpriteNode(imageNamed: "bullet")
+        
+        bullet.scale(to: CGSize(width: 10, height: 5))
+        var fire = SKAction()
+        if (self.xScale > 0){
+            fire = SKAction.moveTo(x: self.position.x + self.size.width/2 + 300, duration: 1)
+            bullet.position = CGPoint(x: self.position.x + self.size.width/2, y: self.position.y)
+        }
+        else{
+            fire = SKAction.moveTo(x: self.position.x - self.size.width/2 - 300, duration: 1)
+            bullet.position = CGPoint(x: self.position.x - self.size.width/2, y: self.position.y)
+        }
+        bullet.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: bullet.size.width, height: bullet.size.height))
+        bullet.physicsBody?.affectedByGravity = false
+        bullet.physicsBody?.allowsRotation = false
+        bullet.physicsBody?.collisionBitMask = 3
+        
+        scene.addChild(bullet)
+        
+        let now_cannot_shoot = SKAction.run {
+            self.did_shoot = true
+        }
+        
+        let now_can_shoot = SKAction.run {
+            self.did_shoot = false
+        }
+        let destroy = SKAction.run {
+            bullet.removeFromParent()
+        }
+        let sequence = SKAction.sequence([now_cannot_shoot,fire, now_can_shoot,destroy])
+        bullet.run(sequence)
     }
 }

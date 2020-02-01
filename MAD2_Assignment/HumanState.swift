@@ -28,9 +28,16 @@ class HumanState : GKState{
             decelSpeed = player_node.airDecel
         }
         if(player_node.walkingLeft == true){
+            if(player_node.xScale > 0){
+                player_node.xScale = -player_node.xScale
+            }
             player_node.speed_ = approach(start: player_node.speed_, end: -5, shift: accelSpeed)
         }
         else if (player_node.walkingRight == true){
+            if(player_node.xScale < 0){
+                player_node.xScale = -player_node.xScale
+            }
+           
             player_node.speed_ = approach(start: player_node.speed_, end: 5, shift: accelSpeed)
         }
         else{
