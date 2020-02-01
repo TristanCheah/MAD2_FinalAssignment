@@ -59,9 +59,19 @@ class PlayerNode : SKSpriteNode {
         stateMachine!.enter(HumanState.self)
     }
     func fireBullet(scene : SKScene){
-        let bullet = SKSpriteNode(imageNamed: "bullet")
-        
+        let bullet = Bullet(imageNamed: "bullet")
+       
         bullet.scale(to: CGSize(width: 10, height: 5))
+       
+        bullet.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: bullet.size.width, height: bullet.size.height))
+        bullet.physicsBody?.affectedByGravity = false
+        bullet.physicsBody?.allowsRotation = false
+        bullet.physicsBody?.collisionBitMask = 3
+        bullet.physicsBody?.categoryBitMask = 8
+        bullet.physicsBody?.contactTestBitMask = 2;
+        bullet.name = "bullet"
+        bullet.player_ = self
+        scene.addChild(bullet)
         var fire = SKAction()
         if (self.xScale > 0){
             fire = SKAction.moveTo(x: self.position.x + self.size.width/2 + 300, duration: 1)
@@ -71,13 +81,6 @@ class PlayerNode : SKSpriteNode {
             fire = SKAction.moveTo(x: self.position.x - self.size.width/2 - 300, duration: 1)
             bullet.position = CGPoint(x: self.position.x - self.size.width/2, y: self.position.y)
         }
-        bullet.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: bullet.size.width, height: bullet.size.height))
-        bullet.physicsBody?.affectedByGravity = false
-        bullet.physicsBody?.allowsRotation = false
-        bullet.physicsBody?.collisionBitMask = 3
-        
-        scene.addChild(bullet)
-        
         let now_cannot_shoot = SKAction.run {
             self.did_shoot = true
         }

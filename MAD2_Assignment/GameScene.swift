@@ -36,6 +36,7 @@ class GameScene: SKScene {
         
         //self.addChild(player_node)
         //HUD
+        
         joystick.InstantiateJoystick(scene: self, player_node: player_node, camera: self.camera!)
         
         shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 400, y: -150))
