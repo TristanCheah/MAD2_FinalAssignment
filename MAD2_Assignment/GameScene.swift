@@ -39,10 +39,10 @@ class GameScene: SKScene {
         
         joystick.InstantiateJoystick(scene: self, player_node: player_node, camera: self.camera!)
         
-        shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 400, y: -150))
+        shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 440, y: -200))
         self.camera?.addChild(shoot_button)
         
-        jump_button.InstantiateButton(self_button: jump_button, location:CGPoint(x: 440, y: -200))
+        jump_button.InstantiateButton(self_button: jump_button, location:CGPoint(x: 400, y: -150))
         self.camera?.addChild(jump_button)
         //HUD
         self.physicsWorld.contactDelegate = physics_delegate
