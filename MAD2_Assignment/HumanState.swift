@@ -17,8 +17,8 @@ class HumanState : GKState{
     override func update(deltaTime seconds: TimeInterval) {
         var accelSpeed : CGFloat  = 0.0
         var decelSpeed : CGFloat = 0.0
+        player_node.player_state_name = "Human";
         
-       
         if(player_node.grounded){
             accelSpeed = player_node.groundAccel
             decelSpeed = player_node.groundDecel
