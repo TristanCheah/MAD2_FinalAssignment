@@ -22,7 +22,7 @@ class GameScene: SKScene {
     var player_node : PlayerNode = PlayerNode()
     var shoot_button : Button = Button(imageNamed: "shoot_button")
     var jump_button : Button = Button(imageNamed: "jump_button")
-    var transform_button : Button = Button(imageNamed: "button")
+    var transform_button : Button = Button(imageNamed: "transform_button")
     var physics_delegate = PhysicsDelegate()
     
     
@@ -92,7 +92,7 @@ class GameScene: SKScene {
                 }
             }
             if(transform_button.frame.contains(location)){
-                player_node.playerTransform(what_to_transform_to: player_node.player_state_name)
+                player_node.playerTransform(what_to_transform_to: player_node.player_state_to_transform)
             }
             
         }

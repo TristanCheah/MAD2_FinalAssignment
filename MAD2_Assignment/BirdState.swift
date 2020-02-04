@@ -11,7 +11,7 @@ import GameplayKit
 import SpriteKit
 class CatState : GKState
 {
-    let texture = SKTexture(imageNamed: "Water_Grid_UpRight_Frame_2")
+    let texture = SKTexture(imageNamed: "cat")
     var player_node :PlayerNode;
     init(player_node_:PlayerNode){
         player_node = player_node_
@@ -27,7 +27,7 @@ class CatState : GKState
     }
     override func didEnter(from previousState: GKState?) {
         player_node.run(SKAction.setTexture(texture))
-        let newPhysicsBody : SKPhysicsBody = SKPhysicsBody(rectangleOf: texture.size())
+        let newPhysicsBody : SKPhysicsBody = SKPhysicsBody(rectangleOf: CGSize(width: texture.size().width, height: texture.size().height + 20))
         player_node.physicsBody = newPhysicsBody
         player_node.physicsBody?.restitution = 0.0 //stops player from bouncing
         player_node.physicsBody?.collisionBitMask = 2
@@ -43,7 +43,7 @@ class CatState : GKState
          var accelSpeed : CGFloat  = 0.0
          var decelSpeed : CGFloat = 0.0
          
-        
+        player_node.max_jump = 150
          if(player_node.grounded){
              accelSpeed = player_node.groundAccel
              decelSpeed = player_node.groundDecel
@@ -68,6 +68,27 @@ class CatState : GKState
          else{
              player_node.speed_ = approach(start: player_node.speed_, end: 0.0, shift: decelSpeed)
          }
+        
+        if(player_node.grounded){
+            if !player_node.landed{
+                player_node.physicsBody?.applyImpulse(CGVector(dx: (player_node.physicsBody?.velocity.dx)!, dy: 0.0))
+                       player_node.landed = true
+                   }
+            if player_node.jump{
+            player_node.physicsBody?.applyImpulse(CGVector(dx: 0.0, dy: player_node.max_jump))
+                player_node.grounded = false
+            }
+        }
+        if (!player_node.grounded){
+            if ((player_node.physicsBody?.velocity.dy)! < CGFloat(0.0)){
+                player_node.jump = false
+            }
+            if ((player_node.physicsBody?.velocity.dy)! > CGFloat(0.0) && !player_node.jump){
+                player_node.physicsBody?.velocity.dy *= 0.5
+            }
+            player_node.landed = false
+        }
+               
         player_node.position.x += player_node.speed_;
     }
 }

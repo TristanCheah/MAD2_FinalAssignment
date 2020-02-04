@@ -35,6 +35,7 @@ class PlayerNode : SKSpriteNode {
     
     var did_shoot : Bool = false;
     var player_state_name : String = "";
+    var player_state_to_transform : String = "";
     
     func InstantiatePlayer(player : PlayerNode){
         
@@ -60,7 +61,7 @@ class PlayerNode : SKSpriteNode {
         
     }
     func playerTransform(what_to_transform_to : String){
-        if(player_state_name != "Human"){
+        if(what_to_transform_to == "Cat" && player_state_name == what_to_transform_to){
              self.stateMachine?.enter(HumanState.self)
         }
         else if(what_to_transform_to == "Cat"){
