@@ -43,10 +43,10 @@ class GameScene: SKScene {
         
         joystick.InstantiateJoystick(scene: self, player_node: player_node, camera: self.camera!)
         
-        shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 450, y: -200))
+        shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 435, y: -250))
         self.camera?.addChild(shoot_button)
         
-        jump_button.InstantiateButton(self_button: jump_button, location:CGPoint(x: 390, y: -150))
+        jump_button.InstantiateButton(self_button: jump_button, location:CGPoint(x: 360, y: -150))
         self.camera?.addChild(jump_button)
         
         transform_button.InstantiateButton(self_button: transform_button, location: CGPoint(x: 510, y: -150))

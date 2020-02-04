@@ -25,6 +25,7 @@ class HumanState : GKState{
         player_node.physicsBody?.contactTestBitMask = 0
         player_node.physicsBody?.allowsRotation = false
         
+        
     }
     override func update(deltaTime seconds: TimeInterval) {
         var accelSpeed : CGFloat  = 0.0

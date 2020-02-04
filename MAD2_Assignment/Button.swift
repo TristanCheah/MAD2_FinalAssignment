@@ -13,6 +13,6 @@ class Button : SKSpriteNode{
     func InstantiateButton(self_button : Button, location : CGPoint){
         self_button.zPosition = 2;
         self_button.position = location
-        self_button.scale(to: CGSize(width: 60, height: 60))
+        self_button.scale(to: CGSize(width: 120, height: 120))
     }
 }

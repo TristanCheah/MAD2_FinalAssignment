@@ -35,11 +35,12 @@ class CatState : GKState
         player_node.physicsBody?.fieldBitMask = 0
         player_node.physicsBody?.contactTestBitMask = 0
         player_node.physicsBody?.allowsRotation = false
+        
     }
     override func update(deltaTime seconds: TimeInterval) {
         
-        player_node.player_state_name = "Cat"
-       
+         player_node.player_state_name = "Cat"
+         
          var accelSpeed : CGFloat  = 0.0
          var decelSpeed : CGFloat = 0.0
          
