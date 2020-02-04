@@ -43,12 +43,8 @@
                                     <segue destination="BV1-FR-VrT" kind="show" id="0oh-Z1-iQH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Man Looks For Toast Lite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLg-h9-lp3">
-                                <rect key="frame" x="268" y="70" width="384" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="1rh-8J-6zi"/>
-                                    <constraint firstAttribute="width" constant="384" id="nUC-bG-4G1"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Man Looks For Toast Lite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="384" translatesAutoresizingMaskIntoConstraints="NO" id="hLg-h9-lp3">
+                                <rect key="frame" x="268.66666666666669" y="71" width="359.00000000000006" height="45"/>
                                 <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="35"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,8 +52,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7r8-lD-Pik" firstAttribute="trailing" secondItem="hLg-h9-lp3" secondAttribute="trailing" constant="200" id="2BQ-bY-7FR"/>
-                            <constraint firstItem="hLg-h9-lp3" firstAttribute="top" secondItem="7r8-lD-Pik" secondAttribute="top" constant="70" id="5B6-vR-hSS"/>
+                            <constraint firstItem="hLg-h9-lp3" firstAttribute="centerY" secondItem="AHo-8a-5C2" secondAttribute="centerY" constant="-113.5" id="1Rc-Ua-GlP"/>
                             <constraint firstItem="cjw-Y7-dqe" firstAttribute="top" secondItem="7r8-lD-Pik" secondAttribute="top" constant="160" id="99a-9w-3TN"/>
                             <constraint firstItem="cjw-Y7-dqe" firstAttribute="leading" secondItem="7r8-lD-Pik" secondAttribute="leading" constant="262" id="CjI-nF-lIR"/>
                             <constraint firstItem="7r8-lD-Pik" firstAttribute="trailing" secondItem="cjw-Y7-dqe" secondAttribute="trailing" constant="262" id="Esj-l5-AMb"/>
@@ -66,8 +61,7 @@
                             <constraint firstItem="7r8-lD-Pik" firstAttribute="bottom" secondItem="cjw-Y7-dqe" secondAttribute="bottom" constant="142" id="VeI-B0-Xdj"/>
                             <constraint firstItem="7r8-lD-Pik" firstAttribute="bottom" secondItem="cjw-Y7-dqe" secondAttribute="bottom" constant="161" id="Vea-En-DLd"/>
                             <constraint firstItem="cjw-Y7-dqe" firstAttribute="top" secondItem="7r8-lD-Pik" secondAttribute="top" constant="179" id="f9t-Z2-SmK"/>
-                            <constraint firstItem="hLg-h9-lp3" firstAttribute="leading" secondItem="7r8-lD-Pik" secondAttribute="leading" constant="224" id="mhR-zn-TYo"/>
-                            <constraint firstItem="cjw-Y7-dqe" firstAttribute="top" secondItem="hLg-h9-lp3" secondAttribute="bottom" constant="73" id="nl1-zg-0hY"/>
+                            <constraint firstItem="hLg-h9-lp3" firstAttribute="centerX" secondItem="AHo-8a-5C2" secondAttribute="centerX" id="q0m-x8-KId"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7r8-lD-Pik"/>
                     </view>
