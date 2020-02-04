@@ -35,6 +35,7 @@ class PlayerNode : SKSpriteNode {
     
     var did_shoot : Bool = false;
     var player_state_name : String = "";
+    var player_state_to_transform : String = "";
     
     func InstantiatePlayer(player : PlayerNode){
         
@@ -60,10 +61,10 @@ class PlayerNode : SKSpriteNode {
         
     }
     func playerTransform(what_to_transform_to : String){
-        if(player_state_name != "Human"){
+        if(what_to_transform_to == "Cat" && player_state_name == what_to_transform_to){
              self.stateMachine?.enter(HumanState.self)
         }
-        if(what_to_transform_to == "Cat"){
+        else if(what_to_transform_to == "Cat"){
             self.stateMachine?.enter(CatState.self)
         }
     }
@@ -83,11 +84,11 @@ class PlayerNode : SKSpriteNode {
         scene.addChild(bullet)
         var fire = SKAction()
         if (self.xScale > 0){
-            fire = SKAction.moveTo(x: self.position.x + self.size.width/2 + 300, duration: 0.2)
+            fire = SKAction.moveTo(x: self.position.x + self.size.width/2 + 500, duration: 0.2)
             bullet.position = CGPoint(x: self.position.x + self.size.width/2, y: self.position.y)
         }
         else{
-            fire = SKAction.moveTo(x: self.position.x - self.size.width/2 - 300, duration: 0.2)
+            fire = SKAction.moveTo(x: self.position.x - self.size.width/2 - 500, duration: 0.2)
             bullet.position = CGPoint(x: self.position.x - self.size.width/2, y: self.position.y)
         }
         let now_cannot_shoot = SKAction.run {

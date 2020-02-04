@@ -26,7 +26,8 @@ class JoystickNode : SKSpriteNode{
        
         base.alpha = 0.4
         ball.alpha = 0.4
-        
+        base.zPosition = 1;
+        ball.zPosition = 1;
         
         camera.addChild(base)
         camera.addChild(ball)

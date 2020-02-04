@@ -25,7 +25,7 @@ class Bullet : SKSpriteNode{
         print(player_.player_state_name)
         
         if(object_hit.name == "Cat"){
-            player_.player_state_name = "Cat"
+            player_.player_state_to_transform = "Cat"
             //player_.stateMachine?.enter(CatState.self)
             print("Now Bird")
         }

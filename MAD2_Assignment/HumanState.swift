@@ -25,12 +25,13 @@ class HumanState : GKState{
         player_node.physicsBody?.contactTestBitMask = 0
         player_node.physicsBody?.allowsRotation = false
         
+        
     }
     override func update(deltaTime seconds: TimeInterval) {
         var accelSpeed : CGFloat  = 0.0
         var decelSpeed : CGFloat = 0.0
         player_node.player_state_name = "Human";
-        
+        player_node.max_jump = 300;
         if(player_node.grounded){
             accelSpeed = player_node.groundAccel
             decelSpeed = player_node.groundDecel
