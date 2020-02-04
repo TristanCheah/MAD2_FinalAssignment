@@ -63,7 +63,7 @@ class PlayerNode : SKSpriteNode {
         if(player_state_name != "Human"){
              self.stateMachine?.enter(HumanState.self)
         }
-        if(what_to_transform_to == "Cat"){
+        else if(what_to_transform_to == "Cat"){
             self.stateMachine?.enter(CatState.self)
         }
     }

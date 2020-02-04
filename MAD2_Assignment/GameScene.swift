@@ -20,8 +20,8 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0    
     var joystick : JoystickNode = JoystickNode()
     var player_node : PlayerNode = PlayerNode()
-    var shoot_button : Button = Button(imageNamed: "button")
-    var jump_button : Button = Button(imageNamed: "button")
+    var shoot_button : Button = Button(imageNamed: "shoot_button")
+    var jump_button : Button = Button(imageNamed: "jump_button")
     var transform_button : Button = Button(imageNamed: "button")
     var physics_delegate = PhysicsDelegate()
     
@@ -43,13 +43,13 @@ class GameScene: SKScene {
         
         joystick.InstantiateJoystick(scene: self, player_node: player_node, camera: self.camera!)
         
-        shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 440, y: -200))
+        shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 450, y: -200))
         self.camera?.addChild(shoot_button)
         
-        jump_button.InstantiateButton(self_button: jump_button, location:CGPoint(x: 400, y: -150))
+        jump_button.InstantiateButton(self_button: jump_button, location:CGPoint(x: 390, y: -150))
         self.camera?.addChild(jump_button)
         
-        transform_button.InstantiateButton(self_button: transform_button, location: CGPoint(x: 480, y: -150))
+        transform_button.InstantiateButton(self_button: transform_button, location: CGPoint(x: 510, y: -150))
         self.camera?.addChild(transform_button)
         //HUD
         self.physicsWorld.contactDelegate = physics_delegate
@@ -87,7 +87,9 @@ class GameScene: SKScene {
             }
             if(shoot_button.frame.contains(location) && player_node.did_shoot == false){
                 //shoot
-                player_node.fireBullet(scene: self)
+                if(player_node.player_state_name == "Human"){
+                    player_node.fireBullet(scene: self)
+                }
             }
             if(transform_button.frame.contains(location)){
                 player_node.playerTransform(what_to_transform_to: player_node.player_state_name)
