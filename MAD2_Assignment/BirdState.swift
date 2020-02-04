@@ -27,7 +27,7 @@ class CatState : GKState
     }
     override func didEnter(from previousState: GKState?) {
         player_node.run(SKAction.setTexture(texture))
-        let newPhysicsBody : SKPhysicsBody = SKPhysicsBody(rectangleOf: CGSize(width: texture.size().width, height: texture.size().height + 20))
+        let newPhysicsBody : SKPhysicsBody = SKPhysicsBody(rectangleOf: CGSize(width: texture.size().width, height: texture.size().height + 25))
         player_node.physicsBody = newPhysicsBody
         player_node.physicsBody?.restitution = 0.0 //stops player from bouncing
         player_node.physicsBody?.collisionBitMask = 2

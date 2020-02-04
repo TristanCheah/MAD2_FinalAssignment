@@ -84,11 +84,11 @@ class PlayerNode : SKSpriteNode {
         scene.addChild(bullet)
         var fire = SKAction()
         if (self.xScale > 0){
-            fire = SKAction.moveTo(x: self.position.x + self.size.width/2 + 500, duration: 0.2)
+            fire = SKAction.moveTo(x: self.position.x + self.size.width/2 + 600, duration: 0.2)
             bullet.position = CGPoint(x: self.position.x + self.size.width/2, y: self.position.y)
         }
         else{
-            fire = SKAction.moveTo(x: self.position.x - self.size.width/2 - 500, duration: 0.2)
+            fire = SKAction.moveTo(x: self.position.x - self.size.width/2 - 600, duration: 0.2)
             bullet.position = CGPoint(x: self.position.x - self.size.width/2, y: self.position.y)
         }
         let now_cannot_shoot = SKAction.run {

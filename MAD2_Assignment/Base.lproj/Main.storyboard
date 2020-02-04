@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oDw-6R-MtV">
-    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <device id="retina6_5" orientation="landscape" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,46 +28,68 @@
         <scene sceneID="ABK-Wq-n7N">
             <objects>
                 <viewController id="oDw-6R-MtV" customClass="FrontViewController" customModule="MAD2_Assignment" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AHo-8a-5C2">
+                    <view key="view" contentMode="scaleAspectFit" id="AHo-8a-5C2">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjw-Y7-dqe">
-                                <rect key="frame" x="376" y="180" width="144" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjw-Y7-dqe">
+                                <rect key="frame" x="305" y="179" width="286" height="53"/>
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="46"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
                                 <connections>
                                     <action selector="playbtn:" destination="oDw-6R-MtV" eventType="touchUpInside" id="9Bd-Aa-Obi"/>
-                                    <segue destination="lbf-oY-jsk" kind="show" id="g3Q-gk-yJJ"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="0oh-Z1-iQH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Man Looks For Toast Lite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLg-h9-lp3">
+                                <rect key="frame" x="268" y="70" width="384" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="1rh-8J-6zi"/>
+                                    <constraint firstAttribute="width" constant="384" id="nUC-bG-4G1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="35"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7r8-lD-Pik" firstAttribute="trailing" secondItem="hLg-h9-lp3" secondAttribute="trailing" constant="200" id="2BQ-bY-7FR"/>
+                            <constraint firstItem="hLg-h9-lp3" firstAttribute="top" secondItem="7r8-lD-Pik" secondAttribute="top" constant="70" id="5B6-vR-hSS"/>
+                            <constraint firstItem="cjw-Y7-dqe" firstAttribute="top" secondItem="7r8-lD-Pik" secondAttribute="top" constant="160" id="99a-9w-3TN"/>
+                            <constraint firstItem="cjw-Y7-dqe" firstAttribute="leading" secondItem="7r8-lD-Pik" secondAttribute="leading" constant="262" id="CjI-nF-lIR"/>
+                            <constraint firstItem="7r8-lD-Pik" firstAttribute="trailing" secondItem="cjw-Y7-dqe" secondAttribute="trailing" constant="262" id="Esj-l5-AMb"/>
+                            <constraint firstItem="cjw-Y7-dqe" firstAttribute="leading" secondItem="7r8-lD-Pik" secondAttribute="leading" constant="261" id="LqM-I6-zxR"/>
+                            <constraint firstItem="7r8-lD-Pik" firstAttribute="trailing" secondItem="cjw-Y7-dqe" secondAttribute="trailing" constant="261" id="Oj0-3M-uX0"/>
+                            <constraint firstItem="7r8-lD-Pik" firstAttribute="bottom" secondItem="cjw-Y7-dqe" secondAttribute="bottom" constant="142" id="VeI-B0-Xdj"/>
+                            <constraint firstItem="7r8-lD-Pik" firstAttribute="bottom" secondItem="cjw-Y7-dqe" secondAttribute="bottom" constant="161" id="Vea-En-DLd"/>
+                            <constraint firstItem="cjw-Y7-dqe" firstAttribute="top" secondItem="7r8-lD-Pik" secondAttribute="top" constant="179" id="f9t-Z2-SmK"/>
+                            <constraint firstItem="hLg-h9-lp3" firstAttribute="leading" secondItem="7r8-lD-Pik" secondAttribute="leading" constant="224" id="mhR-zn-TYo"/>
+                            <constraint firstItem="cjw-Y7-dqe" firstAttribute="top" secondItem="hLg-h9-lp3" secondAttribute="bottom" constant="73" id="nl1-zg-0hY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7r8-lD-Pik"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h2l-bk-j4d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626.08695652173913" y="102.45535714285714"/>
+            <point key="canvasLocation" x="1220.7589285714284" y="100.00000000000001"/>
         </scene>
-        <!--Navigation View Controller-->
-        <scene sceneID="GDW-mD-mhm">
+        <!--View Controller-->
+        <scene sceneID="1tQ-KQ-psy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lbf-oY-jsk" customClass="NavigationViewController" customModule="MAD2_Assignment" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="o1Z-jN-wAa"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GQx-FQ-7y4">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="rootViewController" id="5w5-Vy-uX3"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ez3-C4-I6y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="Cvo-Uk-qow" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hd6-OC-2uR">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="NKg-hu-9yb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bVE-Xn-Nfx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418.840579710145" y="101.78571428571428"/>
+            <point key="canvasLocation" x="2069" y="1135"/>
         </scene>
     </scenes>
 </document>

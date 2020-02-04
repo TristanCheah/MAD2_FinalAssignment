@@ -22,7 +22,7 @@ class JoystickNode : SKSpriteNode{
        
         
         ball.position = base.position
-        ball.scale(to: CGSize(width: 150, height: 150))
+        ball.scale(to: CGSize(width: 120, height: 120))
        
         base.alpha = 0.4
         ball.alpha = 0.4

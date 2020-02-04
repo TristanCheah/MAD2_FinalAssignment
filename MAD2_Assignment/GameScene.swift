@@ -30,7 +30,7 @@ class GameScene: SKScene {
         self.camera = get_camera()
         self.lastUpdateTime = 0
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
-        self.backgroundColor = SKColor.green
+        self.backgroundColor = SKColor.gray
         
         if let player : PlayerNode = self.childNode(withName: "player") as? PlayerNode{
             player_node = player
