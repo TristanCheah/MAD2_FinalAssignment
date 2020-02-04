@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 
 class FrontViewController:UIViewController{
+    override func viewDidLoad() {
+        
+            
+        
+    }
     @IBAction func playbtn(_ sender: Any) {
         
     }

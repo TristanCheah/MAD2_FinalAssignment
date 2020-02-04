@@ -54,10 +54,18 @@ class PlayerNode : SKSpriteNode {
     
     func setupStateMachine(){
         let humanState = HumanState(player_node_: self)
-        let birdState = BirdState(player_node_: self)
-        stateMachine = GKStateMachine(states: [humanState, birdState])
+        let catState = CatState(player_node_: self)
+        stateMachine = GKStateMachine(states: [humanState, catState])
         stateMachine!.enter(HumanState.self)
         
+    }
+    func playerTransform(what_to_transform_to : String){
+        if(player_state_name != "Human"){
+             self.stateMachine?.enter(HumanState.self)
+        }
+        if(what_to_transform_to == "Cat"){
+            self.stateMachine?.enter(CatState.self)
+        }
     }
     func fireBullet(scene : SKScene){
         let bullet = Bullet(imageNamed: "bullet")

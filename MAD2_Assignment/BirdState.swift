@@ -8,11 +8,14 @@
 
 import Foundation
 import GameplayKit
-class BirdState : GKState
+import SpriteKit
+class CatState : GKState
 {
+    let texture = SKTexture(imageNamed: "Water_Grid_UpRight_Frame_2")
     var player_node :PlayerNode;
     init(player_node_:PlayerNode){
         player_node = player_node_
+        
     }
     func approach(start:CGFloat, end:CGFloat, shift:CGFloat)->CGFloat{
         if (start < end){
@@ -22,9 +25,21 @@ class BirdState : GKState
             return max(start - shift, end)
         }
     }
+    override func didEnter(from previousState: GKState?) {
+        player_node.run(SKAction.setTexture(texture))
+        let newPhysicsBody : SKPhysicsBody = SKPhysicsBody(rectangleOf: texture.size())
+        player_node.physicsBody = newPhysicsBody
+        player_node.physicsBody?.restitution = 0.0 //stops player from bouncing
+        player_node.physicsBody?.collisionBitMask = 2
+        player_node.physicsBody?.categoryBitMask = 1
+        player_node.physicsBody?.fieldBitMask = 0
+        player_node.physicsBody?.contactTestBitMask = 0
+        player_node.physicsBody?.allowsRotation = false
+    }
     override func update(deltaTime seconds: TimeInterval) {
-        player_node.player_state_name = "Bird"
         
+        player_node.player_state_name = "Cat"
+       
          var accelSpeed : CGFloat  = 0.0
          var decelSpeed : CGFloat = 0.0
          

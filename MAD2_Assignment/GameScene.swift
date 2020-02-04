@@ -13,6 +13,8 @@ class GameScene: SKScene {
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
+    
+    var player_initial_y = CGFloat()
    
     
     private var lastUpdateTime : TimeInterval = 0    
@@ -20,6 +22,7 @@ class GameScene: SKScene {
     var player_node : PlayerNode = PlayerNode()
     var shoot_button : Button = Button(imageNamed: "button")
     var jump_button : Button = Button(imageNamed: "button")
+    var transform_button : Button = Button(imageNamed: "button")
     var physics_delegate = PhysicsDelegate()
     
     
@@ -34,6 +37,7 @@ class GameScene: SKScene {
             player_node.InstantiatePlayer(player: player_node)
         }
         
+        player_initial_y = player_node.position.y+90
         //self.addChild(player_node)
         //HUD
         
@@ -44,6 +48,9 @@ class GameScene: SKScene {
         
         jump_button.InstantiateButton(self_button: jump_button, location:CGPoint(x: 400, y: -150))
         self.camera?.addChild(jump_button)
+        
+        transform_button.InstantiateButton(self_button: transform_button, location: CGPoint(x: 480, y: -150))
+        self.camera?.addChild(transform_button)
         //HUD
         self.physicsWorld.contactDelegate = physics_delegate
         
@@ -81,6 +88,9 @@ class GameScene: SKScene {
             if(shoot_button.frame.contains(location) && player_node.did_shoot == false){
                 //shoot
                 player_node.fireBullet(scene: self)
+            }
+            if(transform_button.frame.contains(location)){
+                player_node.playerTransform(what_to_transform_to: player_node.player_state_name)
             }
             
         }
@@ -127,14 +137,14 @@ class GameScene: SKScene {
                 else{
                     player_node.walkingRight = false
                 }
-                if(deg < 315 && deg > 225){
+                /*if(deg < 315 && deg > 225){
                    //jump
                     player_node.can_jump = true
                     player_node.jump = true
                 }
                 else{
                     player_node.can_jump = false
-                }
+                }*/
               
                 
             }
@@ -179,7 +189,7 @@ class GameScene: SKScene {
         let dt = currentTime - self.lastUpdateTime
         
         player_node.stateMachine?.update(deltaTime: dt)
-        let cam_pos_y : CGFloat = player_node.position.y + 180
+        let cam_pos_y : CGFloat = player_node.position.y + 90
         camera?.position = CGPoint(x: player_node.position.x, y: cam_pos_y)
         
         

@@ -9,11 +9,23 @@
 import Foundation
 import GameplayKit
 class HumanState : GKState{
+    let texture = SKTexture(imageNamed: "player")
     var player_node :PlayerNode;
     init(player_node_:PlayerNode){
         player_node = player_node_
     }
-    
+    override func didEnter(from previousState: GKState?) {
+        player_node.run(SKAction.setTexture(texture))
+        player_node.scale(to: CGSize(width: 100, height: 100));
+        player_node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: player_node.size.width, height: player_node.size.height))
+        player_node.physicsBody?.restitution = 0.0 //stops player from bouncing
+        player_node.physicsBody?.collisionBitMask = 2
+        player_node.physicsBody?.categoryBitMask = 1
+        player_node.physicsBody?.fieldBitMask = 0
+        player_node.physicsBody?.contactTestBitMask = 0
+        player_node.physicsBody?.allowsRotation = false
+        
+    }
     override func update(deltaTime seconds: TimeInterval) {
         var accelSpeed : CGFloat  = 0.0
         var decelSpeed : CGFloat = 0.0

@@ -23,13 +23,10 @@ class Bullet : SKSpriteNode{
     func ChangePlayerState(object_hit:SKNode){
         print(object_hit.name!)
         print(player_.player_state_name)
-        if(object_hit.name! == player_.player_state_name){
-            player_.stateMachine?.enter(HumanState.self)
-            print("Back to Human")
-            //player_.stateMachine?.enter(HumanState.self)
-        }
-        else if(object_hit.name == "Bird"){
-            player_.stateMachine?.enter(BirdState.self)
+        
+        if(object_hit.name == "Cat"){
+            player_.player_state_name = "Cat"
+            //player_.stateMachine?.enter(CatState.self)
             print("Now Bird")
         }
     }
