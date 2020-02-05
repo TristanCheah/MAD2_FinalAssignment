@@ -18,7 +18,7 @@ class JoystickNode : SKSpriteNode{
         ball.anchorPoint = CGPoint(x:0.5,y:0.5)
         base.anchorPoint = CGPoint(x:0.5,y:0.5)
         base.position = CGPoint(x: -300, y: -200)
-        base.scale(to: CGSize(width: 150, height: 150))
+        base.scale(to: CGSize(width: 180, height: 180))
        
         
         ball.position = base.position

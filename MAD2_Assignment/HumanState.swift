@@ -23,6 +23,7 @@ class HumanState : GKState{
         player_node.physicsBody?.categoryBitMask = 1
         player_node.physicsBody?.fieldBitMask = 0
         player_node.physicsBody?.contactTestBitMask = 0
+        player_node.physicsBody?.friction = 0.4
         player_node.physicsBody?.allowsRotation = false
         
         

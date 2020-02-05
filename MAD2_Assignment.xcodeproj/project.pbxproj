@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E336F8F23EAEA5600C3448A /* FinalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E336F8E23EAEA5600C3448A /* FinalVC.swift */; };
 		7E33E51D23E010CF0077B4E3 /* PrototypeTileset.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7E33E51C23E010CF0077B4E3 /* PrototypeTileset.sks */; };
 		7E347A9F23DD749A00F29394 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E347A9E23DD749A00F29394 /* Button.swift */; };
 		7E359A9E23DAAFE2002D99C2 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E359A9D23DAAFE2002D99C2 /* PlayerNode.swift */; };
@@ -16,6 +17,9 @@
 		7E3644D423E5587D00CBC822 /* BirdState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3644D323E5587D00CBC822 /* BirdState.swift */; };
 		7E3667A823E950B100718830 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7E3667A723E950B100718830 /* Level2.sks */; };
 		7E3667AA23E950C400718830 /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3667A923E950C400718830 /* Level2.swift */; };
+		7E3718C023E9B81C00C17EED /* InGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3718BF23E9B81C00C17EED /* InGameButton.swift */; };
+		7E3718C223E9CB6200C17EED /* EnemyTurret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3718C123E9CB6200C17EED /* EnemyTurret.swift */; };
+		7E3718C423E9CB9000C17EED /* EnemyBullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3718C323E9CB9000C17EED /* EnemyBullet.swift */; };
 		7E39B94323DAEED40053D35E /* PhysicsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E39B94223DAEED40053D35E /* PhysicsDelegate.swift */; };
 		7E4A62AC23D5D4AA008BD726 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A62AB23D5D4AA008BD726 /* FrontViewController.swift */; };
 		7E4A62AE23D5D654008BD726 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A62AD23D5D654008BD726 /* NavigationViewController.swift */; };
@@ -49,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E336F8E23EAEA5600C3448A /* FinalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalVC.swift; sourceTree = "<group>"; };
 		7E33E51C23E010CF0077B4E3 /* PrototypeTileset.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PrototypeTileset.sks; sourceTree = "<group>"; };
 		7E347A9E23DD749A00F29394 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		7E359A9D23DAAFE2002D99C2 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
@@ -58,6 +63,9 @@
 		7E3644D323E5587D00CBC822 /* BirdState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdState.swift; sourceTree = "<group>"; };
 		7E3667A723E950B100718830 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
 		7E3667A923E950C400718830 /* Level2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
+		7E3718BF23E9B81C00C17EED /* InGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameButton.swift; sourceTree = "<group>"; };
+		7E3718C123E9CB6200C17EED /* EnemyTurret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyTurret.swift; sourceTree = "<group>"; };
+		7E3718C323E9CB9000C17EED /* EnemyBullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyBullet.swift; sourceTree = "<group>"; };
 		7E39B94223DAEED40053D35E /* PhysicsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsDelegate.swift; sourceTree = "<group>"; };
 		7E4A62AB23D5D4AA008BD726 /* FrontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontViewController.swift; sourceTree = "<group>"; };
 		7E4A62AD23D5D654008BD726 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +139,7 @@
 				7E7770A723D0485F00340074 /* GameScene.sks */,
 				7E3667A723E950B100718830 /* Level2.sks */,
 				7E3667A923E950C400718830 /* Level2.swift */,
+				7E336F8E23EAEA5600C3448A /* FinalVC.swift */,
 				7E7770A923D0485F00340074 /* Actions.sks */,
 				7E7770AB23D0485F00340074 /* GameScene.swift */,
 				7E347A9E23DD749A00F29394 /* Button.swift */,
@@ -148,6 +157,9 @@
 				7E359A9F23DAB36F002D99C2 /* JoystickNode.swift */,
 				7E359AA123DAC2CD002D99C2 /* HumanState.swift */,
 				7E3644D323E5587D00CBC822 /* BirdState.swift */,
+				7E3718BF23E9B81C00C17EED /* InGameButton.swift */,
+				7E3718C123E9CB6200C17EED /* EnemyTurret.swift */,
+				7E3718C323E9CB9000C17EED /* EnemyBullet.swift */,
 			);
 			path = MAD2_Assignment;
 			sourceTree = "<group>";
@@ -307,12 +319,16 @@
 			files = (
 				7E359A9E23DAAFE2002D99C2 /* PlayerNode.swift in Sources */,
 				7E4A62AC23D5D4AA008BD726 /* FrontViewController.swift in Sources */,
+				7E3718C423E9CB9000C17EED /* EnemyBullet.swift in Sources */,
+				7E336F8F23EAEA5600C3448A /* FinalVC.swift in Sources */,
 				7E359AA023DAB36F002D99C2 /* JoystickNode.swift in Sources */,
 				7E3644D423E5587D00CBC822 /* BirdState.swift in Sources */,
+				7E3718C023E9B81C00C17EED /* InGameButton.swift in Sources */,
 				7E3667AA23E950C400718830 /* Level2.swift in Sources */,
 				7E359AA223DAC2CD002D99C2 /* HumanState.swift in Sources */,
 				7E7770AC23D0485F00340074 /* GameScene.swift in Sources */,
 				7E347A9F23DD749A00F29394 /* Button.swift in Sources */,
+				7E3718C223E9CB6200C17EED /* EnemyTurret.swift in Sources */,
 				7E7770AE23D0485F00340074 /* GameViewController.swift in Sources */,
 				7E4A62AE23D5D654008BD726 /* NavigationViewController.swift in Sources */,
 				7E39B94323DAEED40053D35E /* PhysicsDelegate.swift in Sources */,

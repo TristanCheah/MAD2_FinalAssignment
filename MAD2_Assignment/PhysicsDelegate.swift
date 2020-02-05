@@ -14,7 +14,10 @@ struct ColliderType {
     static let GROUND : UInt32 = 0x1 << 1 //2
     static let TRANSFORM : UInt32 = 0x1 << 2
     static let BULLET : UInt32 = 0x1 << 3
-    
+    static let BUTTON : UInt32 = 0x1 << 4
+    static let LAVA : UInt32 = 0b101
+    static let PORTAL : UInt32 = 0b110
+    static let ENEMYBULLET:UInt32=0b111
 }
 class PhysicsDelegate : NSObject, SKPhysicsContactDelegate{
    
@@ -51,6 +54,60 @@ class PhysicsDelegate : NSObject, SKPhysicsContactDelegate{
                 bullet.ChangePlayerState(object_hit: contact.bodyA.node!)
             }
             
+        }
+        if collision == ColliderType.ENEMYBULLET | ColliderType.GROUND{
+            if let bullet = contact.bodyA.node as? Bullet{
+                bullet.DestroySelf()
+                
+            }
+            else if let bullet = contact.bodyB.node as? Bullet{
+                bullet.DestroySelf()
+            }
+        }
+        if collision == ColliderType.ENEMYBULLET|ColliderType.PLAYER{
+           if let player = contact.bodyA.node as? PlayerNode{
+
+               player.is_dead = true;
+               
+           }
+           else if let player = contact.bodyB.node as? PlayerNode{
+
+               player.is_dead = true;
+               
+           }
+       }
+        if collision == ColliderType.LAVA|ColliderType.PLAYER{
+            if let player = contact.bodyA.node as? PlayerNode{
+
+                player.is_dead = true;
+                
+            }
+            else if let player = contact.bodyB.node as? PlayerNode{
+
+                player.is_dead = true;
+                
+            }
+        }
+        if collision == ColliderType.PLAYER | ColliderType.BUTTON{
+            if let btn = contact.bodyA.node as? InGameButton{
+                btn.is_pressed_ = true;
+            }
+            
+            else if let btn = contact.bodyB.node as? InGameButton{
+                btn.is_pressed_ = true;
+            }
+        }
+        if collision == ColliderType.PORTAL|ColliderType.PLAYER{
+            if let player = contact.bodyA.node as? PlayerNode{
+
+                player.level_finish = true;
+                
+            }
+            else if let player = contact.bodyB.node as? PlayerNode{
+
+                player.level_finish = true;
+                
+            }
         }
     }
 }

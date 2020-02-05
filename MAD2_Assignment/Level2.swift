@@ -9,6 +9,7 @@
 import Foundation
 import SpriteKit
 import GameplayKit
+import UIKit
 
 class Level2 : SKScene{
     var entities = [GKEntity]()
@@ -20,10 +21,13 @@ class Level2 : SKScene{
         private var lastUpdateTime : TimeInterval = 0
         var joystick : JoystickNode = JoystickNode()
         var player_node : PlayerNode = PlayerNode()
+        var ig_button_1:InGameButton = InGameButton()
+        var ig_button_2:InGameButton = InGameButton()
         var shoot_button : Button = Button(imageNamed: "shoot_button")
         var jump_button : Button = Button(imageNamed: "jump_button")
         var transform_button : Button = Button(imageNamed: "transform_button")
         var physics_delegate = PhysicsDelegate()
+        var turret_node = EnemyTurret()
         
         
         override func sceneDidLoad() {
@@ -31,16 +35,30 @@ class Level2 : SKScene{
             self.lastUpdateTime = 0
             self.anchorPoint = CGPoint(x: 0.5, y: 0.5);
             self.backgroundColor = SKColor.gray
-            
+            if let turret: EnemyTurret = self.childNode(withName: "turret") as? EnemyTurret{
+                turret_node = turret;
+            }
             if let player : PlayerNode = self.childNode(withName: "player") as? PlayerNode{
                 player_node = player
                 player_node.InstantiatePlayer(player: player_node)
+                player_node.level_finish = false;
+            }
+            
+            if let btn1: InGameButton = self.childNode(withName: "button1") as? InGameButton{
+                ig_button_1 = btn1
+                ig_button_1.InitializeButton()
+            }
+            if let btn2: InGameButton = self.childNode(withName: "button2") as? InGameButton{
+                ig_button_2 = btn2
+                ig_button_2.InitializeButton()
             }
             
             player_initial_y = player_node.position.y+90
             //self.addChild(player_node)
             //HUD
-            
+            print(self)
+            print(player_node)
+            print(self.camera!)
             joystick.InstantiateJoystick(scene: self, player_node: player_node, camera: self.camera!)
             
             shoot_button.InstantiateButton(self_button: shoot_button, location:CGPoint(x: 435, y: -250))
@@ -187,13 +205,63 @@ class Level2 : SKScene{
                 self.lastUpdateTime = currentTime
             }
             
+            
             // Calculate time since last update
             let dt = currentTime - self.lastUpdateTime
+            if(player_node.level_finish){
+                //transition to end screen
+                print("Level Finish")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "FinalVC")
+                vc.view.frame = (self.view?.frame)!
+                vc.view.layoutIfNeeded()
+                
+                UIView.transition(with: self.view!, duration: 0.3, options: .transitionFlipFromRight, animations: {
+                    self.view?.window?.rootViewController = vc
+                }, completion: {
+                    completed in
+                })
+                
+            }
+            //check if player is dead
+            if(player_node.is_dead)
+            {
+               if let scene = GKScene(fileNamed: "Level2") {
+                          
+                          // Get the SKScene from the loaded GKScene
+                          if let sceneNode = scene.rootNode as! Level2? {
+                              
+                              // Copy gameplay related content over to the scene
+                              sceneNode.entities = scene.entities
+                              sceneNode.graphs = scene.graphs
+                              
+                              // Set the scale mode to scale to fit the window
+                              sceneNode.scaleMode = .aspectFill
+                              
+                              // Present the scene
+                            if let view = self.view {
+                                  view.presentScene(sceneNode)
+                                  
+                                  view.ignoresSiblingOrder = true
+                                  
+                                  view.showsFPS = true
+                                  view.showsNodeCount = true
+                              }
+                          }
+                      }
+            }
             
             player_node.stateMachine?.update(deltaTime: dt)
             let cam_pos_y : CGFloat = player_node.position.y + 90
             camera?.position = CGPoint(x: player_node.position.x, y: cam_pos_y)
+            let wait = SKAction.wait(forDuration: 1)
+            let fireBullet = SKAction.run{
+                self.turret_node.fireBullet(scene: self)
+            }
+                
+            let seq = SKAction.sequence([wait, fireBullet])
             
+            turret_node.run(seq)
             
             // Update entities
             for entity in self.entities {
@@ -201,5 +269,6 @@ class Level2 : SKScene{
             }
             
             self.lastUpdateTime = currentTime
+            
         }
 }

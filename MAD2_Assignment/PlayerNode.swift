@@ -11,6 +11,8 @@ import SpriteKit
 import GameplayKit
 class PlayerNode : SKSpriteNode {
     
+    public var is_dead:Bool = false
+    public var level_finish:Bool = false
     var current_Scene :SKScene = SKScene()
     var stateMachine :GKStateMachine?
     var stickActive : Bool = false
@@ -38,16 +40,17 @@ class PlayerNode : SKSpriteNode {
     var player_state_to_transform : String = "";
     
     func InstantiatePlayer(player : PlayerNode){
-        
+        player.is_dead = false;
+        player.level_finish = false;
         player.position = CGPoint(x: 100, y: -200);
         setupStateMachine()
         player.scale(to: CGSize(width: 100, height: 100));
         player.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width, height: self.size.height))
         player.physicsBody?.restitution = 0.0 //stops player from bouncing
-        player.physicsBody?.collisionBitMask = 2
+        player.physicsBody?.collisionBitMask = 7
         player.physicsBody?.categoryBitMask = 1
         player.physicsBody?.fieldBitMask = 0
-        player.physicsBody?.contactTestBitMask = 0
+        player.physicsBody?.contactTestBitMask = 1
         player.physicsBody?.allowsRotation = false
         player.name = "player"
         
@@ -84,11 +87,11 @@ class PlayerNode : SKSpriteNode {
         scene.addChild(bullet)
         var fire = SKAction()
         if (self.xScale > 0){
-            fire = SKAction.moveTo(x: self.position.x + self.size.width/2 + 600, duration: 0.2)
+            fire = SKAction.moveTo(x: self.position.x + self.size.width/2 + 900, duration: 0.2)
             bullet.position = CGPoint(x: self.position.x + self.size.width/2, y: self.position.y)
         }
         else{
-            fire = SKAction.moveTo(x: self.position.x - self.size.width/2 - 600, duration: 0.2)
+            fire = SKAction.moveTo(x: self.position.x - self.size.width/2 - 900, duration: 0.2)
             bullet.position = CGPoint(x: self.position.x - self.size.width/2, y: self.position.y)
         }
         let now_cannot_shoot = SKAction.run {

@@ -24,7 +24,7 @@ class GameScene: SKScene {
     var jump_button : Button = Button(imageNamed: "jump_button")
     var transform_button : Button = Button(imageNamed: "transform_button")
     var physics_delegate = PhysicsDelegate()
-    
+    let next_scene = Level2(fileNamed: "Level2")
     
     override func sceneDidLoad() {
         self.camera = get_camera()
@@ -123,7 +123,7 @@ class GameScene: SKScene {
                     joystick.ball.position = CGPoint(x:joystick.base.position.x - x_dist, y:joystick.base.position.y + y_dist)
                 }
                
-                print(deg)
+               
                 if (deg < 90 || deg > 315){
                     
                     player_node.walkingLeft = true
@@ -201,5 +201,35 @@ class GameScene: SKScene {
         }
         
         self.lastUpdateTime = currentTime
+        
+        
+        //transition to next scene
+        if(player_node.level_finish == true)
+        {
+            if let scene = GKScene(fileNamed: "Level2") {
+                       
+                       // Get the SKScene from the loaded GKScene
+                       if let sceneNode = scene.rootNode as! Level2? {
+                           
+                           // Copy gameplay related content over to the scene
+                           sceneNode.entities = scene.entities
+                           sceneNode.graphs = scene.graphs
+                           
+                           // Set the scale mode to scale to fit the window
+                           sceneNode.scaleMode = .aspectFill
+                           
+                           // Present the scene
+                        if let view = self.view {
+                               view.presentScene(sceneNode)
+                               
+                               view.ignoresSiblingOrder = true
+                               
+                               view.showsFPS = true
+                               view.showsNodeCount = true
+                           }
+                       }
+                   }
+        }
+        
     }
 }
