@@ -23,7 +23,7 @@ class EnemyTurret : SKSpriteNode{
         bullet.physicsBody?.collisionBitMask = 3
         bullet.physicsBody?.categoryBitMask = 7
         bullet.physicsBody?.contactTestBitMask = 2;
-        bullet.name = "bullet"
+        bullet.name = "enemybullet"
         
         scene.addChild(bullet)
         let delay = SKAction.wait(forDuration: 1)

@@ -12,20 +12,26 @@ import GameplayKit
 struct ColliderType {
     static let PLAYER : UInt32 = 0x1 << 0 //1
     static let GROUND : UInt32 = 0x1 << 1 //2
-    static let TRANSFORM : UInt32 = 0x1 << 2
-    static let BULLET : UInt32 = 0x1 << 3
+    static let TRANSFORM : UInt32 = 0x1 << 2//4
+    static let BULLET : UInt32 = 0x1 << 3//8
     static let BUTTON : UInt32 = 0x1 << 4
-    static let LAVA : UInt32 = 0b101
-    static let PORTAL : UInt32 = 0b110
-    static let ENEMYBULLET:UInt32=0b111
+    static let LAVA : UInt32 = 0b101//5
+    static let PORTAL : UInt32 = 0b110//6
+    static let ENEMYBULLET:UInt32 = 0b111//7
 }
 class PhysicsDelegate : NSObject, SKPhysicsContactDelegate{
    
     func didBegin(_ contact: SKPhysicsContact) {
         let collision : UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         print(collision)
-        print(contact.bodyA.node!.name as String? ?? "")
-        print(contact.bodyB.node!.name as String? ?? "")
+        
+        let string1 : String = (contact.bodyA.node!.name)!
+        let string2 : String = (contact.bodyB.node!.name)!
+       
+        
+      
+        print(string1 + string2)
+        
         if collision == ColliderType.PLAYER | ColliderType.GROUND{
             
             if let player = contact.bodyA.node as? PlayerNode{
@@ -99,13 +105,14 @@ class PhysicsDelegate : NSObject, SKPhysicsContactDelegate{
         }
         if collision == ColliderType.PORTAL|ColliderType.PLAYER{
             if let player = contact.bodyA.node as? PlayerNode{
-
-                player.level_finish = true;
+                if(contact.bodyB.node?.name != "enemybullet"){                player.level_finish = true;
+                }
                 
             }
             else if let player = contact.bodyB.node as? PlayerNode{
 
-                player.level_finish = true;
+                if(contact.bodyA.node?.name != "enemybullet"){                player.level_finish = true;
+                }
                 
             }
         }
