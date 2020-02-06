@@ -71,21 +71,6 @@
             </objects>
             <point key="canvasLocation" x="1220.7589285714284" y="100.00000000000001"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="1tQ-KQ-psy">
-            <objects>
-                <viewController id="Cvo-Uk-qow" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hd6-OC-2uR">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="NKg-hu-9yb"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bVE-Xn-Nfx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2069" y="1135"/>
-        </scene>
         <!--FinalVC-->
         <scene sceneID="25W-ed-Vci">
             <objects>
@@ -94,73 +79,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Man Looks For Toast Lite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="384" translatesAutoresizingMaskIntoConstraints="NO" id="hon-r2-9qd">
-                                <rect key="frame" x="252" y="116" width="359" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But MegaMan's toast is in another castle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="384" translatesAutoresizingMaskIntoConstraints="NO" id="cIT-2e-HvP">
+                                <rect key="frame" x="134" y="197" width="581" height="34.333333333333343"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Fyx-GH-g8Y"/>
-                                    <constraint firstAttribute="width" constant="359" id="RzQ-d9-bSy"/>
-                                    <constraint firstAttribute="width" secondItem="hon-r2-9qd" secondAttribute="height" multiplier="359:45" id="vuf-mX-Nd9"/>
+                                    <constraint firstAttribute="height" constant="34.329999999999998" id="oRh-zu-BkG"/>
+                                    <constraint firstAttribute="width" constant="629" id="q1p-rM-MOM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="35"/>
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But MegaMan's toast is in another castle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="384" translatesAutoresizingMaskIntoConstraints="NO" id="cIT-2e-HvP">
-                                <rect key="frame" x="158" y="185" width="550" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To be continued..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="384" translatesAutoresizingMaskIntoConstraints="NO" id="Oo1-Xt-pUr">
+                                <rect key="frame" x="244" y="256" width="360" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="550" id="5o8-VI-zDm"/>
-                                    <constraint firstAttribute="width" secondItem="cIT-2e-HvP" secondAttribute="height" multiplier="110:9" id="GKn-Ij-cUR"/>
-                                    <constraint firstAttribute="height" constant="45" id="cWh-rG-HN5"/>
+                                    <constraint firstAttribute="height" constant="34" id="Gfc-Qq-UcW"/>
+                                    <constraint firstAttribute="width" constant="408" id="cpS-74-V6G"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="35"/>
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="27"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWu-we-oNC">
-                                <rect key="frame" x="372" y="311" width="153" height="48"/>
+                                <rect key="frame" x="274" y="322" width="300" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="Hep-bO-Wye"/>
-                                    <constraint firstAttribute="width" secondItem="jWu-we-oNC" secondAttribute="height" multiplier="51:16" id="dzG-cR-Rhz"/>
-                                    <constraint firstAttribute="width" constant="153" id="l4w-tN-CzW"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="0os-dh-3vl"/>
+                                    <constraint firstAttribute="width" constant="300" id="Doi-LI-Yva"/>
+                                    <constraint firstAttribute="height" constant="48" id="Hxf-nz-J9s"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="28"/>
-                                <state key="normal" title="Back to Main">
+                                <state key="normal" title="Back to Main" backgroundImage="Cobblestone_Grid_Center">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <segue destination="oDw-6R-MtV" kind="show" id="7tk-ZE-yv0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To be continued" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="384" translatesAutoresizingMaskIntoConstraints="NO" id="Oo1-Xt-pUr">
-                                <rect key="frame" x="332" y="238" width="232" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Man Looks For Toast Lite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="384" translatesAutoresizingMaskIntoConstraints="NO" id="6fs-tJ-1e9">
+                                <rect key="frame" x="189" y="99" width="471" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="auH-cf-Xgu"/>
-                                    <constraint firstAttribute="width" constant="232" id="khK-V2-cXu"/>
-                                    <constraint firstAttribute="width" secondItem="Oo1-Xt-pUr" secondAttribute="height" multiplier="232:45" id="pIQ-ds-RYr"/>
+                                    <constraint firstAttribute="width" constant="471" id="c5b-1u-ETm"/>
+                                    <constraint firstAttribute="height" constant="45" id="zTG-0z-o7N"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="35"/>
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="29"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="o5G-pH-EUD" firstAttribute="trailing" secondItem="jWu-we-oNC" secondAttribute="trailing" constant="327" id="2OY-Yk-SOO"/>
-                            <constraint firstItem="hon-r2-9qd" firstAttribute="leading" secondItem="o5G-pH-EUD" secondAttribute="leading" constant="208" id="3n6-Hd-7l8"/>
-                            <constraint firstItem="jWu-we-oNC" firstAttribute="top" secondItem="Oo1-Xt-pUr" secondAttribute="bottom" constant="28" id="5wP-I8-c3d"/>
-                            <constraint firstItem="cIT-2e-HvP" firstAttribute="top" secondItem="hon-r2-9qd" secondAttribute="bottom" constant="24" id="FUn-Pn-nZj"/>
-                            <constraint firstItem="Oo1-Xt-pUr" firstAttribute="top" secondItem="cIT-2e-HvP" secondAttribute="bottom" constant="8" id="GNa-fu-jnr"/>
-                            <constraint firstItem="o5G-pH-EUD" firstAttribute="trailing" secondItem="cIT-2e-HvP" secondAttribute="trailing" constant="144" id="GyF-V7-wkZ"/>
-                            <constraint firstItem="Oo1-Xt-pUr" firstAttribute="leading" secondItem="o5G-pH-EUD" secondAttribute="leading" constant="288" id="JY4-gW-hzt"/>
-                            <constraint firstItem="o5G-pH-EUD" firstAttribute="bottom" secondItem="jWu-we-oNC" secondAttribute="bottom" constant="34" id="Kxf-kr-Adv"/>
-                            <constraint firstItem="cIT-2e-HvP" firstAttribute="leading" secondItem="o5G-pH-EUD" secondAttribute="leading" constant="114" id="bVU-eD-8Wx"/>
-                            <constraint firstItem="cIT-2e-HvP" firstAttribute="top" secondItem="hon-r2-9qd" secondAttribute="bottom" constant="24" id="bZf-JS-PIR"/>
-                            <constraint firstItem="o5G-pH-EUD" firstAttribute="trailing" secondItem="hon-r2-9qd" secondAttribute="trailing" constant="241" id="iIa-vB-Ixj"/>
-                            <constraint firstItem="Oo1-Xt-pUr" firstAttribute="top" secondItem="cIT-2e-HvP" secondAttribute="bottom" constant="8" id="itg-IL-n5w"/>
-                            <constraint firstItem="jWu-we-oNC" firstAttribute="top" secondItem="Oo1-Xt-pUr" secondAttribute="bottom" constant="28" id="qxU-sa-BGs"/>
-                            <constraint firstItem="hon-r2-9qd" firstAttribute="top" secondItem="o5G-pH-EUD" secondAttribute="top" constant="116" id="vIH-bY-PTr"/>
-                            <constraint firstItem="jWu-we-oNC" firstAttribute="leading" secondItem="o5G-pH-EUD" secondAttribute="leading" constant="328" id="wsR-9K-UpR"/>
-                            <constraint firstItem="o5G-pH-EUD" firstAttribute="trailing" secondItem="Oo1-Xt-pUr" secondAttribute="trailing" constant="288" id="zgl-sh-e0Y"/>
+                            <constraint firstItem="cIT-2e-HvP" firstAttribute="top" secondItem="6fs-tJ-1e9" secondAttribute="bottom" constant="60" id="23s-An-w2x"/>
+                            <constraint firstItem="Oo1-Xt-pUr" firstAttribute="leading" secondItem="o5G-pH-EUD" secondAttribute="leading" constant="200" id="5dA-ZZ-iUh"/>
+                            <constraint firstItem="cIT-2e-HvP" firstAttribute="leading" secondItem="o5G-pH-EUD" secondAttribute="leading" constant="90" id="6r4-go-14P"/>
+                            <constraint firstItem="jWu-we-oNC" firstAttribute="top" secondItem="Oo1-Xt-pUr" secondAttribute="bottom" constant="32" id="ACS-f2-Z6X"/>
+                            <constraint firstItem="o5G-pH-EUD" firstAttribute="trailing" secondItem="6fs-tJ-1e9" secondAttribute="trailing" constant="150" id="HFQ-2d-pYc"/>
+                            <constraint firstItem="6fs-tJ-1e9" firstAttribute="leading" secondItem="o5G-pH-EUD" secondAttribute="leading" constant="150" id="Jxq-6c-9Vb"/>
+                            <constraint firstItem="o5G-pH-EUD" firstAttribute="bottom" secondItem="jWu-we-oNC" secondAttribute="bottom" constant="23" id="N79-1o-rKz"/>
+                            <constraint firstItem="6fs-tJ-1e9" firstAttribute="top" secondItem="o5G-pH-EUD" secondAttribute="top" constant="92" id="Puu-v8-irp"/>
+                            <constraint firstItem="jWu-we-oNC" firstAttribute="leading" secondItem="o5G-pH-EUD" secondAttribute="leading" constant="230" id="Q0F-zb-pe4"/>
+                            <constraint firstItem="o5G-pH-EUD" firstAttribute="trailing" secondItem="cIT-2e-HvP" secondAttribute="trailing" constant="89" id="Tbh-LC-lGJ"/>
+                            <constraint firstItem="o5G-pH-EUD" firstAttribute="trailing" secondItem="jWu-we-oNC" secondAttribute="trailing" constant="230" id="mrd-il-efZ"/>
+                            <constraint firstItem="cIT-2e-HvP" firstAttribute="top" secondItem="6fs-tJ-1e9" secondAttribute="bottom" constant="60" id="nu7-ZX-ZiJ"/>
+                            <constraint firstItem="Oo1-Xt-pUr" firstAttribute="top" secondItem="cIT-2e-HvP" secondAttribute="bottom" constant="24.670000000000002" id="uz5-7l-Ea8"/>
+                            <constraint firstItem="o5G-pH-EUD" firstAttribute="trailing" secondItem="Oo1-Xt-pUr" secondAttribute="trailing" constant="200" id="vub-Iu-idy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o5G-pH-EUD"/>
                     </view>
@@ -170,4 +150,7 @@
             <point key="canvasLocation" x="1248.8839285714284" y="982.60869565217399"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Cobblestone_Grid_Center" width="128" height="128"/>
+    </resources>
 </document>
