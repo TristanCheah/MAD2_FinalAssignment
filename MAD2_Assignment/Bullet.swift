@@ -20,6 +20,14 @@ class Bullet : SKSpriteNode{
         let sequence = SKAction.sequence([now_can_shoot,destroy])
         self.run(sequence)
     }
+    func DestroySelfEnemy(){
+       
+        let destroy = SKAction.run {
+            self.removeFromParent()
+        }
+       
+        self.run(destroy)
+    }
     func ChangePlayerState(object_hit:SKNode){
         print(object_hit.name!)
         print(player_.player_state_name)

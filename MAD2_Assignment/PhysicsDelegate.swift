@@ -63,11 +63,11 @@ class PhysicsDelegate : NSObject, SKPhysicsContactDelegate{
         }
         if collision == ColliderType.ENEMYBULLET | ColliderType.GROUND{
             if let bullet = contact.bodyA.node as? Bullet{
-                bullet.DestroySelf()
+                bullet.DestroySelfEnemy()
                 
             }
             else if let bullet = contact.bodyB.node as? Bullet{
-                bullet.DestroySelf()
+                bullet.DestroySelfEnemy()
             }
         }
         if collision == ColliderType.ENEMYBULLET|ColliderType.PLAYER{
