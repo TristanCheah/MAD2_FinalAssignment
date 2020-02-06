@@ -13,7 +13,7 @@ class PlayerNode : SKSpriteNode {
     
     public var is_dead:Bool = false
     public var level_finish:Bool = false
-    var current_Scene :SKScene = SKScene()
+    
     var stateMachine :GKStateMachine?
     var stickActive : Bool = false
     
